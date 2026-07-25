@@ -1,27 +1,30 @@
 ---
 name: estado-corpus-pt
-description: Mostra o que o corpus português da IAJUS contém AGORA (por órgão, ano e família) pelo MCP IAJUS. Acione antes de concluir que "não existe" jurisprudência ou legislação para um tribunal/ano - um resultado vazio na pesquisa pode ser cobertura em andamento, e esta skill confirma o que já está na base.
+description: Mostra o que o corpus português da IAJUS contém AGORA (por órgão, ano e acervo) pelo MCP IAJUS. Acione antes de concluir que "não existe" jurisprudência para um tribunal/ano - um resultado vazio na pesquisa pode ser cobertura em andamento, e esta skill confirma o que já está na base.
 allowed-tools: mcp__iajus-pt__obter_estatisticas_base, mcp__plugin_iajus-pt_iajus-pt__obter_estatisticas_base
 ---
 
 # Estado do corpus português (IAJUS)
 
 Tem acesso à tool `obter_estatisticas_base`, que devolve o estado atual do corpus PT: quantos
-registos existem por órgão, por ano e por família (jurisprudência, legislação). **Use-a para
-confirmar o retrato atual antes de afirmar cobertura ou ausência.**
+registos existem por órgão, por ano e por acervo. **Use-a para confirmar o retrato atual antes de
+afirmar cobertura ou ausência.**
+
+Enumere apenas os acervos que a resposta trouxer. Um acervo que não aparece **não está nesta
+superfície** - não o anuncie, não o descreva como "em breve" e não infira a sua dimensão.
 
 ## Quando usar
 
 - Antes de reportar que "não há" jurisprudência de um tribunal/ano. Um `total: 0` confirma apenas
   que a consulta não retornou registos; esta tool mostra o retrato disponível por órgão e ano.
 - Para dar ao utilizador um panorama honesto, chame a tool e enumere somente os órgãos, anos e
-  famílias presentes na resposta atual. Não use uma lista fixa desta skill como prova de cobertura.
+  acervos presentes na resposta atual. Não use uma lista fixa desta skill como prova de cobertura.
 - Para confirmar a janela temporal disponível de um órgão antes de uma pesquisa por faixa de ano.
 
 ## Como interpretar
 
-- O corpus é **vivo**: os números crescem entre sessões à medida que novos órgãos, anos e
-  famílias são ingeridos. Reporte o estado como um retrato do momento, não como um total final.
+- O corpus é **vivo**: os números crescem entre sessões à medida que novos órgãos e anos são
+  ingeridos. Reporte o estado como um retrato do momento, não como um total final.
 - Se um órgão esperado aparecer com contagem baixa, zero ou estiver ausente, reporte exatamente
   esse estado. Não conclua se é ausência na fonte, ingestão pendente ou cobertura incompleta sem
   um campo autoritativo. Cite o timestamp ou frescor quando a resposta o trouxer; caso contrário,

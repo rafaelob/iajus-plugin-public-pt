@@ -1,13 +1,13 @@
-# IAJUS Portugal: jurisprudência e legislação portuguesa no seu assistente de IA
+# IAJUS Portugal: jurisprudência portuguesa no seu assistente de IA
 
-Este é o marketplace oficial do plugin **IAJUS Portugal**. Ele liga o seu assistente (Claude Code, Codex ou ChatGPT) à base portuguesa do IAJUS: acórdãos dos tribunais superiores e das Relações via DGSI, legislação do Diário da República com texto vigente e identificador ELI, e verificação de citações em fontes oficiais. O plugin existe para o seu assistente **citar o que existe de verdade**, nunca inventar precedente.
+Este é o marketplace oficial do plugin **IAJUS Portugal**. Ele liga o seu assistente (Claude Code, Codex ou ChatGPT) à base portuguesa do IAJUS: acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e verificação de citações em fontes oficiais. O plugin existe para o seu assistente **citar o que existe de verdade**, nunca inventar precedente.
 
 > Procura jurisprudência e legislação do **Brasil**? Esse é um marketplace separado: [github.com/rafaelob/iajus-plugin-public](https://github.com/rafaelob/iajus-plugin-public).
 
 ## O que ganha
 
 - **Pesquisa de jurisprudência portuguesa** em modalidades complementares (multimodal, semântica e por identificador), sempre com sumário e link oficial da DGSI.
-- **Legislação com vigência**: texto vigente do Diário da República, com ELI citável em cada norma.
+- **Precedente qualificado**: acórdão uniformizador de jurisprudência (AUJ) com o respetivo estado.
 - **Estado do corpus ao vivo**: confirme a cobertura atual antes de concluir que não há resultados.
 - **Skills pt-PT prontas** que ensinam o assistente o método de pesquisa jurídica portuguesa.
 

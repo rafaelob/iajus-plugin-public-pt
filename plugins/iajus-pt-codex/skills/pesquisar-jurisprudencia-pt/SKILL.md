@@ -1,6 +1,6 @@
 ---
 name: pesquisar-jurisprudencia-pt
-description: Pesquisa e cita jurisprudência portuguesa real (Supremo Tribunal de Justiça, Tribunais da Relação, STA, TCA-Sul/Norte, Tribunal Constitucional, Conflitos, Tribunal de Contas) pelo MCP IAJUS - modalidades semântica, híbrida, texto integral, regex e citações, mais qualificadas (acórdão uniformizador de jurisprudência) com vigência. Acione para acórdão, descritor, sumário, ECLI, tese firmada ou entendimento de um tribunal português. NÃO use para legislação.
+description: Pesquisa e cita jurisprudência portuguesa real (Supremo Tribunal de Justiça, Tribunais da Relação, STA, TCA-Sul/Norte, Tribunal Constitucional, Conflitos, Tribunal de Contas) pelo MCP IAJUS - modalidades semântica, híbrida, texto integral, regex e citações, mais qualificadas (acórdão uniformizador de jurisprudência) com vigência. Acione para acórdão, descritor, sumário, ECLI, tese firmada ou entendimento de um tribunal português.
 allowed-tools: mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__buscar_semantica, mcp__iajus-pt__buscar_hibrida, mcp__plugin_iajus-pt_iajus-pt__buscar_hibrida, mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex, mcp__iajus-pt__buscar_por_citacoes, mcp__plugin_iajus-pt_iajus-pt__buscar_por_citacoes, mcp__iajus-pt__buscar_qualificada, mcp__plugin_iajus-pt_iajus-pt__buscar_qualificada, mcp__iajus-pt__obter_versoes_qualificada, mcp__plugin_iajus-pt_iajus-pt__obter_versoes_qualificada
 ---
 

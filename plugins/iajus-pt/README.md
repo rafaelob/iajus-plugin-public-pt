@@ -1,29 +1,26 @@
-# IAJUS - Jurisprudência & Legislação PT (plugin Claude Code)
+# IAJUS - Jurisprudência PT (plugin Claude Code)
 
-Pesquisa e cita **jurisprudência e legislação portuguesa real** diretamente no Claude
+Pesquisa e cita **jurisprudência portuguesa real** diretamente no Claude
 (Claude Desktop, claude.ai e Claude Code), pelo servidor MCP remoto da IAJUS. As skills
 orientam o Claude a usar a fonte oficial e a nunca citar de memória.
 
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com pesquisa e
-  leitura de jurisprudência e legislação PT.
-- **Três skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
+  leitura de jurisprudência PT.
+- **Duas skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
   pesquisa e conferir cada citação antes de entregar:
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
     Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência (AUJ), descritores,
     ECLI.
-  - `consultar-legislacao-pt` - legislação do Diário da República (Lei, Decreto-Lei,
-    Portaria, Decreto Regulamentar, Constituição), texto integral, ELI, vigência e caducidade.
-  - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e família).
+  - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
 
 ## Fontes
 
 - **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
-- **Legislação:** Diário da República (DRE/INCM), com identificador europeu de legislação (ELI).
 
-O corpus é VIVO e cresce continuamente; órgãos, anos e famílias novos aparecem na pesquisa
+O corpus é VIVO e cresce continuamente; órgãos e anos novos aparecem na pesquisa
 sem alteração de plugin.
 
 ## Como ligar
@@ -46,6 +43,6 @@ expirada: refaça o login ou reveja a chave.
 - Todas as tools são **somente-leitura**: pesquisam e citam, nunca escrevem.
 - Preserve os acentos e o UTF-8 exatamente como na fonte.
 - Vocabulário e direito **português** (não brasileiro): acórdão, Tribunal da Relação, DGSI,
-  Diário da República, ELI, ECLI, descritores, acórdão uniformizador de jurisprudência.
+  ECLI, descritores, acórdão uniformizador de jurisprudência.
 
 Homepage: https://iajus.pt

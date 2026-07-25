@@ -1,6 +1,18 @@
-# Changelog - IAJUS Jurisprudência & Legislação PT (Codex)
+# Changelog - IAJUS Jurisprudência PT (Codex)
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
+
+## [1.1.0] - 2026-07-25
+
+### Removido
+- Skill `consultar-legislacao-pt` e toda a promessa de legislação na vitrine (nome, descrição,
+  palavras-chave, fontes, prompts sugeridos). O lançamento PT sai **juris-only**: das normas
+  portuguesas na base, nenhuma tem dispositivos indexados e apenas 0,50% tem corpo de texto, e não
+  existia caminho da pesquisa para o texto (o leitor endereçava por coordenadas brasileiras). As
+  três tools correspondentes já tinham saído do perfil `pt` do servidor, o que deixaria esta skill
+  a mandar chamar tool inexistente.
+- **Não é "em breve".** Voltará quando houver dispositivos PT efetivamente indexados **e** um
+  vocabulário de endereçamento português no leitor - as duas condições, nunca só uma.
 
 ## [1.0.1] - 2026-07-23
 

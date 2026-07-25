@@ -1,22 +1,20 @@
-# IAJUS - Jurisprudência & Legislação PT (plugin Codex)
+# IAJUS - Jurisprudência PT (plugin Codex)
 
-Pesquisa e cita **jurisprudência e legislação portuguesa real** no Codex, pelo servidor MCP
+Pesquisa e cita **jurisprudência portuguesa real** no Codex, pelo servidor MCP
 remoto da IAJUS. As skills orientam o agente a usar a fonte oficial e a nunca citar de memória.
 
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`).
-- **Três skills pt-PT:**
+- **Duas skills pt-PT:**
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
     Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência, descritores, ECLI.
-  - `consultar-legislacao-pt` - legislação do Diário da República por nome e por número, texto
-    integral, ELI, vigência e caducidade.
-  - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e família).
+  - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
 
 ## Fontes
 
-- **Jurisprudência:** DGSI (www.dgsi.pt). **Legislação:** Diário da República (DRE/INCM), com ELI.
+- **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
 
 ## Como ligar
 
@@ -32,6 +30,6 @@ expirada.
 
 - Todas as tools são **somente-leitura**: pesquisam e citam, nunca escrevem.
 - Vocabulário e direito **português** (não brasileiro): acórdão, Tribunal da Relação, DGSI,
-  Diário da República, ELI, ECLI, descritores, acórdão uniformizador de jurisprudência.
+  ECLI, descritores, acórdão uniformizador de jurisprudência.
 
 Homepage: https://iajus.pt
