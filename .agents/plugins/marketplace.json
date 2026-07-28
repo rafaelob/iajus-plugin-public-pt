@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "iajus-pt",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "description": "Pesquisa e cita jurisprudência portuguesa real (STJ, Tribunais da Relação, STA, TCA-Sul/Norte, Tribunal Constitucional, Tribunal de Contas, via DGSI) pelo MCP remoto IAJUS. Duas skills pt-PT outcome-first (objetivo, invariantes, roteamento de tools, paragem) para GPT e Codex, mais o servidor MCP configurado, OAuth 2.1 por defeito (chave ik_* como alternativa).",
       "source": {
         "source": "local",

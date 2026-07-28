@@ -1,6 +1,6 @@
 {
   "name": "iajus-pt",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Pesquisa e cita jurisprudência portuguesa pelo MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e duas skills pt-PT outcome-first para pesquisa multimodal e estado do corpus. Instala skills e MCP juntos, com OAuth 2.1 por defeito e chave ik_* apenas como alternativa privada.",
   "author": {
     "name": "IAJUS / Celeris",
@@ -21,8 +21,8 @@
     "category": "Productivity",
     "capabilities": ["Read"],
     "websiteURL": "https://iajus.pt",
-    "privacyPolicyURL": "https://iajus.com.br/privacidade",
-    "termsOfServiceURL": "https://iajus.com.br/termos",
+    "privacyPolicyURL": "https://iajus.pt/privacidade",
+    "termsOfServiceURL": "https://iajus.pt/termos",
     "defaultPrompt": [
       "Pesquise acórdãos portugueses sobre responsabilidade civil e cite links oficiais da DGSI.",
       "Localize o acórdão uniformizador de jurisprudência aplicável e cite o respetivo ECLI.",

@@ -43,4 +43,4 @@ Crie a sua conta em [iajus.pt](https://iajus.pt). A autenticação padrão é **
 
 Dúvidas ou problemas: [iajus.pt](https://iajus.pt) ou contato@iajus.com.br.
 
-Política de privacidade: [iajus.com.br/privacidade](https://iajus.com.br/privacidade). Termos de uso: [iajus.com.br/termos](https://iajus.com.br/termos).
+Política de privacidade: [iajus.pt/privacidade](https://iajus.pt/privacidade). Termos de uso: [iajus.pt/termos](https://iajus.pt/termos).
