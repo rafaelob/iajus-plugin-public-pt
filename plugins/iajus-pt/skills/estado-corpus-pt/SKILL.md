@@ -14,7 +14,7 @@ superfície** - não o anuncie, não o descreva como "em breve" e não infira a 
 
 ## Estado da tool nesta superfície (medido 2026-07-28)
 
-A tool está a servir o corpus português com um defeito conhecido, já reportado e em correcção.
+A tool está a servir o corpus português com um defeito conhecido, já reportado e em correção.
 **Leia isto antes de a chamar**, para não interpretar o erro como ausência de dados:
 
 - As secções por **família** e por **tribunal** (`secao="tudo"`, `"familias"`, `"orgaos"`)
@@ -25,11 +25,19 @@ A tool está a servir o corpus português com um defeito conhecido, já reportad
 - Enquanto o defeito durar, use a tabela de cobertura desta skill (abaixo) para responder a
   perguntas de cobertura, e diga que é um retrato medido em 2026-07-28, não uma leitura ao vivo.
 
-> **Ao ler `secao="qualificadas"`, corrija a contagem.** A tool devolve **682** acórdãos na
-> espécie `acordao_uniformizador_jurisprudencia`, mas 33 desses registos são de Tribunais da
-> Relação, que **não podem uniformizar jurisprudência** (art. 686.º CPC): são acórdãos que citam
-> um AUJ, não AUJ. O número correcto a comunicar é **649**, todos do Supremo Tribunal de Justiça.
-> Os campos `vigentes` e `canceladas` vêm a zero porque a base não registra vigência de AUJ - isso
+> **Ao ler `secao="qualificadas"`, corrija a contagem — mas confira primeiro o total.** Em
+> 2026-07-28 a tool devolvia **682** acórdãos na espécie `acordao_uniformizador_jurisprudencia`,
+> dos quais **33** eram de Tribunais da Relação, que **não podem uniformizar jurisprudência**
+> (art. 686.º CPC): são acórdãos que citam um AUJ, não AUJ. Dá **649**, todos do Supremo.
+>
+> ⚠️ **Esse 649 é derivado daquele 682, e não se recalcula sozinho.** A tool não reparte por
+> tribunal, portanto a subtração não é verificável a partir do que ela devolve. Regra:
+> **se `quantidade` vier 682, comunique 649**; **se vier qualquer outro número, o 649 caducou** -
+> diga o total que a tool devolveu, diga que a repartição por tribunal **não está medida** nesta
+> versão, e **não invente** a subtração. Um número derivado que sobrevive à mudança do número de
+> onde saiu deixa de ser medida e passa a ser folclore.
+>
+> Os campos `vigentes` e `canceladas` vêm a zero porque a base não regista vigência de AUJ - isso
 > significa **não medido**, nunca "nenhum está vigente".
 
 ## Cobertura por tribunal (medida 2026-07-28)
@@ -58,16 +66,30 @@ cresce entre sessões.
 
 **A base é de jurisprudência.** Não há nesta superfície legislação pesquisável por sentido, nem
 doutrina, nem ontologia, nem classificação temática. Se a resposta da tool não trouxer um acervo,
-ele não existe aqui - não o anuncie como "em breve".
+ele não existe aqui - não o anuncie como "em breve". Para responder a um pedido de legislação, de
+doutrina ou de vigência sem inventar direito português, use a skill `fora-de-ambito-pt`.
 
 ## Quando usar
 
-- Antes de reportar que "não há" jurisprudência de um tribunal/ano. Um `total: 0` na pesquisa
-  confirma apenas que aquela consulta não retornou registos.
+- Antes de reportar que "não há" jurisprudência de um tribunal/ano. Leia `desfecho`:
+  `sem_resultado` confirma que a consulta correu e não devolveu registos;
+  `erro`/`nao_terminou`/`medida_indisponivel` significa que a consulta não mediu.
 - Para dar ao utilizador um panorama honesto: enumere somente os tribunais, anos e acervos
   presentes na resposta atual (ou na tabela acima, enquanto a tool estiver degradada).
 - Para confirmar a janela temporal disponível de um tribunal antes de uma pesquisa por faixa de
   ano - com atenção especial ao Tribunal Constitucional.
+
+## Envelope de desfecho
+
+Leia a chave `desfecho` ANTES de qualquer contagem. Os cinco valores são mutuamente exclusivos:
+
+- `erro` — a consulta FALHOU; ninguém consultou o acervo. Não é ausência.
+- `sem_resultado` — a consulta CORREU e o acervo não tem. Zero MEDIDO.
+- `nao_terminou` — tempo esgotado ou tecto. NÃO-MEDIDO; não afirme que «não existe».
+- `parcial` — mediu uma parte; declare o que ficou de fora.
+- `medida_indisponivel` - a fonte respondeu e NÃO carrega a medida. NÃO-MEDIDO sem avaria; não é zero.
+
+`total: 0` só é ausência medida quando `desfecho` é `sem_resultado`. Sem `desfecho`, ou com `erro`/`nao_terminou`/`medida_indisponivel`, diga que a consulta não mediu.
 
 ## Como interpretar
 
@@ -81,7 +103,7 @@ ele não existe aqui - não o anuncie como "em breve".
 
 ## Honestidade
 
-Reporte os números tal como a tool os devolve, com a única correcção explicitamente indicada
+Reporte os números tal como a tool os devolve, com a única correção explicitamente indicada
 acima (682 -> 649). Não arredonde para cima, não repita totais estáticos como se fossem leitura
 ao vivo e não afirme completude que a tool não confirma. Se a tool devolver um envelope de erro,
 **diga que é um defeito conhecido da nossa superfície** e responda pela tabela desta skill - nunca

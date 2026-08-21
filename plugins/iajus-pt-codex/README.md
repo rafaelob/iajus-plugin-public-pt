@@ -6,15 +6,25 @@ remoto da IAJUS. As skills orientam o agente a usar a fonte oficial e a nunca ci
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`).
-- **Duas skills pt-PT:**
+- **Quatro skills pt-PT:**
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
-    Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência, descritores, ECLI.
+    Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência. Pesquisável por
+    descritor ou por ECLI escrito no texto; o resultado traz o link oficial da DGSI, e o ECLI
+    não vem no envelope.
+  - `verificar-citacoes-pt` - veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA /
+    FORA DE ÂMBITO) contra a fonte oficial.
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
+  - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
+    como responder sem citar direito português de memória.
 
 ## Fontes
 
 - **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
+
+Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
+de normas: para o texto de uma lei, a fonte oficial é o Diário da República
+(diariodarepublica.pt).
 
 ## Como ligar
 

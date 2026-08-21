@@ -8,17 +8,26 @@ orientam o Claude a usar a fonte oficial e a nunca citar de memória.
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com pesquisa e
   leitura de jurisprudência PT.
-- **Duas skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
+- **Quatro skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
   pesquisa e conferir cada citação antes de entregar:
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
-    Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência (AUJ), descritores,
-    ECLI.
+    Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência (AUJ). Pesquisável
+    por descritor ou por ECLI escrito no texto; o resultado traz o link oficial da DGSI, e o
+    ECLI não vem no envelope.
+  - `verificar-citacoes-pt` - confere as citações de jurisprudência de uma peça contra a fonte,
+    com veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO).
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
+  - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
+    como responder sem citar direito português de memória.
 
 ## Fontes
 
 - **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
+
+Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
+de normas: para o texto de uma lei, a fonte oficial é o Diário da República
+(diariodarepublica.pt).
 
 O corpus é VIVO e cresce continuamente; órgãos e anos novos aparecem na pesquisa
 sem alteração de plugin.

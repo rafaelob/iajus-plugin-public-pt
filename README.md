@@ -1,13 +1,33 @@
 # IAJUS Portugal: jurisprudência portuguesa no seu assistente de IA
 
-Este é o marketplace oficial do plugin **IAJUS Portugal**. Ele liga o seu assistente (Claude Code, Codex ou ChatGPT) à base portuguesa do IAJUS: acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e verificação de citações em fontes oficiais. O plugin existe para o seu assistente **citar o que existe de verdade**, nunca inventar precedente.
+Este é o marketplace oficial do plugin **IAJUS Portugal**. Ele liga o seu assistente (Claude Code, Codex ou ChatGPT) à base portuguesa do IAJUS: acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e a verificação de cada citação contra a fonte oficial. O plugin existe para o seu assistente **citar o que existe de verdade**, nunca inventar precedente.
 
 > Procura jurisprudência e legislação do **Brasil**? Esse é um marketplace separado: [github.com/rafaelob/iajus-plugin-public](https://github.com/rafaelob/iajus-plugin-public).
+
+## Migração de quem instalou antes da separação
+
+Até 2026-07-23 o plugin de Portugal era distribuído no marketplace do Brasil. Se adicionou o marketplace antes dessa data, remova o marketplace antigo e adicione o desta jurisdição. No Claude Code:
+
+```text
+/plugin marketplace remove iajus
+/plugin marketplace add https://github.com/rafaelob/iajus-plugin-public-pt
+/plugin install iajus-pt@iajus-pt
+/plugin enable iajus-pt@iajus-pt
+/reload-plugins
+```
+
+No Codex:
+
+```bash
+codex plugin marketplace remove iajus
+codex plugin marketplace add https://github.com/rafaelob/iajus-plugin-public-pt
+codex plugin add iajus-pt@iajus-pt
+```
 
 ## O que ganha
 
 - **Pesquisa de jurisprudência portuguesa** em modalidades complementares (multimodal, semântica e por identificador), sempre com sumário e link oficial da DGSI.
-- **Precedente qualificado**: acórdão uniformizador de jurisprudência (AUJ) com o respetivo estado.
+- **Precedente qualificado**: os acórdãos uniformizadores de jurisprudência (AUJ) do Supremo Tribunal de Justiça, citáveis pelo teor. A base **não regista a vigência** destes acórdãos e o plugin não a afirma: a confirmação do estado remete-se à fonte oficial (DGSI).
 - **Estado do corpus ao vivo**: confirme a cobertura atual antes de concluir que não há resultados.
 - **Skills pt-PT prontas** que ensinam o assistente o método de pesquisa jurídica portuguesa.
 

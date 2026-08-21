@@ -1,7 +1,7 @@
 ---
 name: pesquisar-jurisprudencia-pt
 description: Pesquisa e cita jurisprudência portuguesa real (Supremo Tribunal de Justiça, Tribunais da Relação, STA, TCA-Sul/Norte, Tribunal Constitucional, Conflitos, Tribunal de Contas) pelo MCP IAJUS - modalidades semântica, híbrida, texto integral e regex. Acione para acórdão, descritor, sumário, ECLI, tese firmada ou entendimento de um tribunal português.
-allowed-tools: mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__buscar_semantica, mcp__iajus-pt__buscar_hibrida, mcp__plugin_iajus-pt_iajus-pt__buscar_hibrida, mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex
+allowed-tools: mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__buscar_semantica, mcp__iajus-pt__buscar_hibrida, mcp__plugin_iajus-pt_iajus-pt__buscar_hibrida, mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex, mcp__iajus-pt__buscar_qualificada, mcp__plugin_iajus-pt_iajus-pt__buscar_qualificada
 ---
 
 # Pesquisar jurisprudência portuguesa (IAJUS)
@@ -12,15 +12,35 @@ Contas. **Use o MCP em vez de inventar jurisprudência - a fonte é a verdade; n
 memória.**
 
 > **Corpus VIVO e em crescimento:** a base é ingerida continuamente; órgãos e anos novos
-> aparecem na pesquisa automaticamente, sem alteração de skill. Um `total: 0` para um órgão/ano
-> em cobertura significa **cobertura em andamento**, não "não existe": avise o utilizador e
-> ofereça uma alternativa (por exemplo, o tribunal superior). Uma excepção real está abaixo, na
-> janela do Tribunal Constitucional - essa é fronteira, não atraso.
+> aparecem na pesquisa automaticamente, sem alteração de skill. Leia `desfecho` ANTES
+> de qualquer contagem: `erro`/`nao_terminou`/`medida_indisponivel` = a consulta não mediu; só
+> `sem_resultado` é zero MEDIDO. Uma excepção real está abaixo, na janela do
+> Tribunal Constitucional — essa é fronteira, não atraso.
 
-## Órgãos cobertos (DGSI + Tribunal de Contas)
+## Envelope de desfecho
+
+Leia a chave `desfecho` ANTES de qualquer contagem. Os cinco valores são mutuamente exclusivos:
+
+- `erro` — a consulta FALHOU; ninguém consultou o acervo. Não é ausência.
+- `sem_resultado` — a consulta CORREU e o acervo não tem. Zero MEDIDO.
+- `nao_terminou` — tempo esgotado ou tecto. NÃO-MEDIDO; não afirme que «não existe».
+- `parcial` — mediu uma parte; declare o que ficou de fora.
+- `medida_indisponivel` - a fonte respondeu e NÃO carrega a medida. NÃO-MEDIDO sem avaria; não é zero.
+
+`total: 0` só é ausência medida quando `desfecho` é `sem_resultado`. Sem `desfecho`, ou com `erro`/`nao_terminou`/`medida_indisponivel`, diga que a consulta não mediu.
+
+## Órgãos FILTRÁVEIS (DGSI + Tribunal de Contas)
 
 Janelas medidas em 2026-07-28. A janela serve para **interpretar o vazio**; o slug serve para
 filtrar (`orgao_code`), sempre na forma `pt_<x>`, que é inequívoca - ver as notas de uso.
+
+> ⚠️ **Esta é a lista do que se pode FILTRAR, não a lista do que a base contém.** Medido em
+> 2026-07-30: o acervo serve ainda **971 unidades do Tribunal de Justiça da União Europeia**
+> (guardadas sob `CJUE`) e **891 do Tribunal Europeu dos Direitos Humanos** (`TEDH`), e o filtro
+> por tribunal **não as alcança** - o código está guardado em maiúsculas e o filtro liga a forma
+> em minúsculas, que casa zero linhas. Duas consequências para quem lê: **não prometa filtrar por
+> TJUE ou TEDH**, porque não funciona; e **um vazio sob filtro nunca prova ausência** destas duas
+> jurisdições. Não são tribunais portugueses e por isso não entram na contagem dos 12.
 
 | Tribunal | Slug | Anos na base | Nota |
 |---|---|---|---|
@@ -66,14 +86,14 @@ Notas de uso:
   erro - o que se lê como "não há jurisprudência do Supremo", uma afirmação falsa sobre o Direito.
   Corrigido na origem em 2026-07-28 (o resolvedor passou a ser por linha: em Portugal `STJ`
   resolve para `pt_stj`, e uma sigla que exista nas DUAS linhas devolve ambiguidade em vez de
-  eleger o Brasil), **mas a correcção só vale depois de o servidor ser actualizado**. Escreva o
+  eleger o Brasil), **mas a correção só vale depois de o servidor ser atualizado**. Escreva o
   slug e a questão não se põe.
 - **O slug alcança o tribunal inteiro; o que a grafia dupla estraga é a repetição.** Cinco
   órgãos estão guardados sob duas grafias (`pt_<x>` e `<x>_pt`), mas medido em 2026-07-28 o
   filtro `pt_<x>` alcança **todos** os acórdãos distintos de cada um deles. O efeito real é
   outro: **o mesmo acórdão pode voltar mais de uma vez** na mesma lista de resultados. Antes de
   apresentar, deduplique pelo `link_completo` e não confunda duas ocorrências com dois
-  precedentes. Defeito conhecido, em correcção no servidor.
+  precedentes. Defeito conhecido, em correção no servidor.
 - **Recorte por ano:** as modalidades aceitam ano ou faixa (`ano_min`/`ano_max`). **Confirme
   sempre a data do próprio resultado** antes de a citar, em vez de assumir que o filtro a
   garantiu.
@@ -86,26 +106,57 @@ Notas de uso:
 uniformiza jurisprudência (art. 686.º CPC): um acórdão de Relação nunca é AUJ, por muito que
 cite um.
 
-**Como chegar lá:** um AUJ é alcançável como qualquer outro acórdão, pelas modalidades acima -
-está indexado com o mesmo texto e o mesmo `link_completo`. Pesquise a tese ("uniformização de
-jurisprudência" mais o tema, ou só o tema) e leia o que volta.
+**Como chegar lá, e há duas portas:**
+
+1. **`buscar_qualificada(tipo='auj')`** - devolve AUJ com `enunciado` e `link_completo` da DGSI.
+   Aceita a alcunha `'auj'` ou a espécie por extenso `'acordao_uniformizador_jurisprudencia'`, e
+   opcionalmente `orgao='pt_stj'` e `k`. (Medido 2026-07-29 no servidor vivo.)
+2. **As modalidades de pesquisa acima** - um AUJ está indexado com o mesmo texto e o mesmo
+   `link_completo` que qualquer acórdão. Pesquise a tese ("uniformização de jurisprudência" mais
+   o tema, ou só o tema) e leia o que volta.
+
+**Use as DUAS.** A primeira encontra AUJ pela espécie mas **não devolve o conjunto** (ver abaixo);
+a segunda encontra pelo tema mas não distingue o AUJ do acórdão comum que o cita.
 
 **O que NÃO existe hoje - e não o encene:**
 
-- Não há tool que **liste** ou **filtre** os AUJ. Não anuncie "vou consultar os acórdãos
-  uniformizadores": pesquise o tema e identifique-os no que voltar.
+- **`buscar_qualificada` NÃO enumera o acervo.** Devolve no máximo **10** por chamada, e `k=50`
+  continua a devolver 10. O campo `total` do envelope conta **o que voltou, não o que existe**.
+  **Nunca** apresente o que voltou como a lista completa, e **nunca** conte AUJ a partir deste
+  `total` - é a diferença entre informar e afirmar algo falso sobre o Direito português.
+- **Passe `orgao='pt_stj'`. É o filtro que separa, e é o único.** A tabela tem **682** linhas com
+  esta espécie, mas só as **649** do Supremo são AUJ: as outras **33** são acórdãos da Relação de
+  Lisboa que CITAM ou discutem um AUJ e ficaram com a espécie errada por defeito de classificação
+  da fonte. Se apresentar uma dessas como acórdão uniformizador, é o assistente que afirma que a
+  Relação uniformizou jurisprudência - e é falso (art. 686.º do CPC: só o Supremo uniformiza).
+- **Os dois campos de marca NÃO discriminam bom de mau, e usá-los como filtro rejeita os 649.**
+  O servidor não esconde nem mente - serve as 33 marcadas com `uniformizador_valido: false` e um
+  `aviso_uniformizador`. Mas leia com cuidado o que cada marca significa:
+  - `uniformizador_valido` **só existe na linha defeituosa**. Nas 649 boas a chave está
+    **AUSENTE**, nunca `true`. Ausência aqui é ausência de objeção, nunca um atestado - quem
+    exigir `uniformizador_valido == true` não encontra nenhuma e conclui que não há AUJ nenhum.
+  - `citavel_como_precedente` vem **`false` nas 682**, incluindo as 649 boas. Não é a marca das
+    33: é consequência de a vigência não estar registada (ver o ponto seguinte), e o campo exige
+    vigência **em vigor** para sair `true`. Como discriminador de espécie, não serve.
+- **`materia` e `numero` não selecionam AUJ.** `materia='civil'` devolve 0 e `numero='8/2022'`
+  devolve 0, porque o campo por trás de `materia` está a NULL nos 682 registos e `numero` guarda
+  o identificador documental da DGSI (um hash), não o número citável do acórdão. Para chegar ao
+  **AUJ n.º 8/2022 pelo número**, pesquise-o pelas modalidades de texto, não por `numero`.
 - Uma pesquisa por "uniformização" **não devolve o conjunto**: só cerca de um terço dos AUJ usa
   essa palavra no sumário. Não conclua a partir do que voltou que os restantes não existem.
-- A base **não registra vigência** de AUJ. **Nunca** afirme que um está vigente, revogado ou
-  superado; cite pelo teor e remeta a confirmação à fonte oficial (DGSI).
+- A base **não regista vigência** de AUJ - vêm todos com `status_vigencia: "desconhecida"`, e a
+  estatística conta 0 vigentes e 0 canceladas em 682. **Nunca** afirme que um está vigente,
+  revogado ou superado; cite pelo teor e remeta a confirmação à fonte oficial (DGSI).
 
 ## Método do pesquisador (4 passos)
 
 Uma pesquisa jurídica a sério quase nunca é UMA chamada: é uma varredura que escala de
 modalidade até a cobertura estabilizar.
 
-1. **Escale a modalidade em vez de cair no vazio.** Uma pesquisa fraca (`total: 0`, ou hits
-   cujo trecho não responde) NÃO é sinal de parar - é sinal de escalar, nesta ordem:
+1. **Escale a modalidade em vez de cair no vazio.** Uma pesquisa com
+   `desfecho=sem_resultado` (ou hits cujo trecho não responde) NÃO é sinal de
+   parar — é sinal de escalar. Se `desfecho` for `erro` ou `nao_terminou`,
+   reporte a falha e não escale como se o acervo estivesse vazio. Nesta ordem:
    - `buscar_semantica` -> **`buscar_hibrida`** com a MESMA consulta (a fusão resgata o que a
      densa isolada perdeu);
    - **reformule** com os termos que apareceram nos primeiros hits (relator, descritor,
@@ -120,10 +171,11 @@ modalidade até a cobertura estabilizar.
    e use os acórdãos comuns para exemplificar a aplicação da tese.
 3. **Refine até a cobertura estabilizar** (rondas sem resultado novo relevante) e cruze as
    modalidades: densa/híbrida para o panorama, FTS/regex para termos e citações literais.
-4. **Envelope de honestidade.** Reporte o vazio como vazio, com o motivo: um `total: 0` de
-   órgão/ano em cobertura é **cobertura em andamento**, não "o precedente não existe" (diga-o e
-   ofereça a fonte superior); no TC pós-1998 é **fronteira da base**; um `{ "erro": ... }` pede
-   ajuste do argumento. Nunca preencha a lacuna com um precedente plausível porém fabricado.
+4. **Envelope de honestidade.** Leia `desfecho` primeiro: `sem_resultado` é zero
+   MEDIDO (cobertura em andamento, não «o precedente não existe» — ofereça a fonte
+   superior); `erro`/`nao_terminou`/`medida_indisponivel` é NÃO-MEDIDO; `parcial` declara o que ficou de
+   fora. No TC pós-1998 é **fronteira da base**. Nunca preencha a lacuna com um
+   precedente fabricado.
 
 ## Passada de conferência anti-alucinação (obrigatória antes de entregar)
 
@@ -141,11 +193,17 @@ LOCALIZADA (possível alucinação) - reporte assim, nunca "provavelmente existe
 
 - **Sempre** cite o campo `link_completo` do registo devolvido - é a URL estável do acórdão na
   DGSI. **Nunca invente** número, sumário, descritor ou link.
-- Cite o `tribunal`, o `numero_processo`, o `relator` e a `data` (julgamento/publicação) quando
-  presentes; quando houver, apresente o **ECLI** e os **descritores**. Resuma o `sumário` em 1-2
-  frases.
-- Se a pesquisa **não** devolver resultado relevante (`total: 0` ou hits fracos), **diga-o
-  honestamente** - não preencha a lacuna com um precedente fabricado.
+- Cite o `tribunal`, o `numero_processo`, o `relator` e a `data_julgamento` quando presentes.
+- **O sumário que recebe é um EXCERTO, não o sumário inteiro, e vem cortado a meio de palavra.**
+  O campo chama-se `ementa_snippet` e traz cerca de 280 caracteres em `buscar_hibrida` (1200 em
+  `buscar_semantica`). Resuma-o em 1-2 frases **sem completar a frase truncada** e sem inferir o
+  que viria a seguir: para o teor integral, remeta o utilizador ao `link_completo`, que abre a
+  ficha da DGSI com o **Sumário** e a **Decisão Texto Integral** completos.
+- **ECLI e descritores NÃO vêm nestas tools.** Existem na base e na ficha da DGSI, mas nenhuma
+  tool MCP os projecta hoje. Não os prometa, não os procure no envelope e sobretudo não os
+  reconstitua a partir do número do processo - um ECLI inventado tem a forma certa e é falso.
+- Se `desfecho` for `sem_resultado` (ou só hits fracos), **diga-o honestamente**.
+  Se for `erro` ou `nao_terminou`, reporte a falha. Não preencha com precedente fabricado.
 
 ## Vocabulário (direito português, não brasileiro)
 
@@ -155,17 +213,26 @@ instituições, precedentes qualificados ou sistemas de classificação de outro
 
 ## Tools deliberadamente FORA desta skill
 
-Não as reponha sem medir a base primeiro. Em 2026-07-28 devolviam vazio sempre, e um vazio delas
-não se lê como "sem dado" mas como uma afirmação falsa sobre o direito:
+Não as reponha sem medir a base primeiro. Duas continuam fora, e pelo mesmo motivo: devolvem
+vazio, e um vazio delas não se lê como "sem dado" mas como uma afirmação falsa sobre o direito.
+
+**Uma terceira saiu desta lista em 2026-07-29** - `buscar_qualificada` passou a responder. Isso é
+a lição a reter: **esta lista descreve o estado da base num dia, não uma propriedade permanente
+do produto.** Antes de a repetir a um utilizador, meça; e quando uma delas passar a responder,
+corrija aqui em vez de continuar a dizer que não existe.
 
 - `buscar_por_citacoes` - a rede de citações portuguesa tem **0 arestas**. Um vazio leria-se
-  como "ninguém citou este acórdão".
+  como "ninguém citou este acórdão". O servidor recusa-as explicitamente em vez de responder
+  vazio; a skill `fora-de-ambito-pt` ensina a ler esse envelope de recusa sem o converter numa
+  afirmação sobre o Direito.
 - `obter_versoes_qualificada` - o histórico de versões tem **0 linhas**. Um vazio leria-se como
-  "a redacção nunca mudou".
-- `buscar_qualificada` - não tem porta de entrada em PT: `numero` guarda o identificador
-  documental da DGSI (não um número de acórdão citável), `materia` depende de um campo que está
-  a NULL nos 682 registos, e o tipo português (`acordao_uniformizador_jurisprudencia`) não é um
-  dos valores que a tool aceita. Use as modalidades de pesquisa (secção AUJ acima).
+  "a redação nunca mudou".
+- `buscar_qualificada` - **deixou de estar nesta lista: já responde.** A espécie passou a ser
+  selector aceite em PT e `tipo='auj'` devolve resultados reais (medido no servidor vivo em
+  2026-07-29). Continua a ser verdade que `numero` e `materia` não selecionam nada, e continua
+  a ser verdade que a chamada **não enumera** o acervo - as condições exatas estão na secção
+  AUJ acima, e é lá que deve ler antes de a usar. Se lhe chegar `erro de contrato`, chamou-a
+  sem selector nenhum: passe `tipo`.
 
 ## Autenticação e aprovação de ferramentas
 
