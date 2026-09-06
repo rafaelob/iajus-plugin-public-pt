@@ -4,7 +4,7 @@
   "description": "Portuguese case law research through the hosted IAJUS MCP server, including Supreme Court and Courts of Appeal decisions sourced through DGSI, with official-source links when available. Includes four pt-PT legal-research skills and OAuth 2.1 authentication.",
   "version": "1.5.0",
   "author": {
-    "name": "IAJUS / Celeris",
+    "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
     "email": "contato@iajus.com.br"
   },
   "homepage": "https://iajus.pt",
