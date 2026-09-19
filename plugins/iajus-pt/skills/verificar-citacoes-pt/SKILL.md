@@ -1,6 +1,6 @@
 ---
 name: verificar-citacoes-pt
-description: 'Confere uma a uma as citações de jurisprudência PORTUGUESA de um texto (peça, parecer, alegações, minuta) contra a fonte oficial pelo MCP IAJUS, com veredicto por citação: CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO. Accione em "confira os acórdãos citados", "este acórdão existe ou foi inventado?", "valide os precedentes desta peça". É o antídoto da alucinação de citação. NÃO pesquisa de raiz (use pesquisar-jurisprudencia-pt) e NÃO confere normas nem vigência.'
+description: 'Confere uma a uma as citações de jurisprudência PORTUGUESA de um texto (peça, parecer, alegações, minuta) contra os registos e ligações de origem devolvidos pelo MCP IAJUS, com veredicto por citação: CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO. Accione em "confira os acórdãos citados", "este acórdão existe ou foi inventado?", "valide os precedentes desta peça". NÃO pesquisa de raiz nem confere normas ou vigência.'
 allowed-tools: mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex, mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_hibrida, mcp__plugin_iajus-pt_iajus-pt__buscar_hibrida, mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__buscar_semantica, mcp__iajus-pt__buscar_qualificada, mcp__plugin_iajus-pt_iajus-pt__buscar_qualificada
 ---
 
@@ -8,14 +8,20 @@ allowed-tools: mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__busca
 
 Tem acesso ao servidor MCP `iajus-pt` para **conferir, uma a uma, se as citações de
 jurisprudência portuguesa de um texto existem mesmo e dizem o que o texto lhes atribui**,
-batendo cada uma contra a fonte oficial (DGSI, mais o Tribunal de Contas). É o antídoto do erro
-mais perigoso de um texto jurídico gerado por IA: o acórdão que não existe, o número trocado, o
-sumário que ninguém escreveu. O produto é um **veredicto por citação**, ancorado no que a fonte
-devolveu: **nunca se confirma de memória.**
+batendo cada uma contra os registos e ligações de origem devolvidos (DGSI, mais o Tribunal de
+Contas). É o antídoto do erro mais perigoso de um texto jurídico gerado por IA: o acórdão que não
+existe, o número trocado, o sumário que ninguém escreveu. O produto é um **veredicto por citação**,
+ancorado no que o serviço devolveu: **nunca se confirma de memória.**
 
 Accione esta skill quando pedirem "confira os acórdãos citados nesta peça", "este acórdão é real
 ou foi inventado?", "valide os precedentes". Para pesquisar de raiz - achar precedentes que ainda
 não estão no texto - use a skill `pesquisar-jurisprudencia-pt`.
+
+> **Natureza da ligação do Tribunal Constitucional:** `link_completo` em
+> `dgsi.pt/atco1` é um **espelho histórico**, não o portal oficial. Identifique-o assim e use
+> `tribunalconstitucional.pt` quando for necessária confirmação na fonte oficial. Para os demais
+> resultados, trate `link_completo` como ligação de origem, sem promover todo endereço DGSI a
+> oficial apenas pelo domínio.
 
 ## Envelope de desfecho
 

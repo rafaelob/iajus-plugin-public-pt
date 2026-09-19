@@ -3,6 +3,14 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.4] - 2026-09-19
+
+### Corrigido
+- Ligações de origem deixam de ser rotuladas em bloco como oficiais. Para resultados do
+  Tribunal Constitucional, `dgsi.pt/atco1` é identificado como espelho histórico e
+  `tribunalconstitucional.pt` como portal oficial. A promessa pública, os exemplos e as skills
+  conservam a proveniência sem alterar tools, permissões ou a submissão reservada ao operador.
+
 ## [1.5.3] - 2026-09-19
 
 ### Adicionado

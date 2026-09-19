@@ -2,7 +2,7 @@
 
 Pesquisa e cita **jurisprudência portuguesa real** diretamente no Claude
 (Claude Desktop, claude.ai e Claude Code), pelo servidor MCP remoto da IAJUS. As skills
-orientam o Claude a usar a fonte oficial e a nunca citar de memória.
+orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca citar de memória.
 
 ## O que inclui
 
@@ -13,8 +13,8 @@ orientam o Claude a usar a fonte oficial e a nunca citar de memória.
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
     Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência (AUJ). Pesquisável
-    por descritor ou por ECLI escrito no texto; o resultado traz o link oficial da DGSI, e o
-    ECLI não vem no envelope.
+    por descritor ou por ECLI escrito no texto; o resultado traz a ligação de origem, e o ECLI
+    não vem no envelope.
   - `verificar-citacoes-pt` - confere as citações de jurisprudência de uma peça contra a fonte,
     com veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO).
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
@@ -24,6 +24,9 @@ orientam o Claude a usar a fonte oficial e a nunca citar de memória.
 ## Fontes
 
 - **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
+  Para o Tribunal Constitucional, `dgsi.pt/atco1` é um **espelho histórico**; o portal em
+  `tribunalconstitucional.pt` é a fonte oficial. A skill conserva este rótulo de proveniência
+  em vez de presumir que toda ligação DGSI tem a mesma natureza.
 
 Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
 de normas: para o texto de uma lei, a fonte oficial é o Diário da República

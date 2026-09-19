@@ -2,6 +2,13 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.4] - 2026-09-19
+
+### Corrigido
+- Mesma correção da gémea Claude: ligações de origem deixam de ser rotuladas em bloco como
+  oficiais; no Tribunal Constitucional, `dgsi.pt/atco1` é espelho histórico e
+  `tribunalconstitucional.pt` é o portal oficial. As skills mantêm-se byte-idênticas.
+
 ## [1.5.3] - 2026-09-19
 
 ### Adicionado

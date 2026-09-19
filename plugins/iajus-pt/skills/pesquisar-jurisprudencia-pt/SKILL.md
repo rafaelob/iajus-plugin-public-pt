@@ -7,9 +7,9 @@ allowed-tools: mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__b
 # Pesquisar jurisprudência portuguesa (IAJUS)
 
 Tem acesso ao servidor MCP `iajus-pt`, que indexa jurisprudência portuguesa dos tribunais
-superiores e das Relações, recolhida da fonte oficial DGSI (www.dgsi.pt), mais o Tribunal de
-Contas. **Use o MCP em vez de inventar jurisprudência - a fonte é a verdade; nunca cite de
-memória.**
+superiores e das Relações, com ligações de origem da DGSI (www.dgsi.pt), mais o Tribunal de
+Contas. **Use o MCP em vez de inventar jurisprudência - ancore a resposta no registo devolvido;
+nunca cite de memória.**
 
 > **Corpus VIVO e em crescimento:** a base é ingerida continuamente; órgãos e anos novos
 > aparecem na pesquisa automaticamente, sem alteração de skill. Leia `desfecho` ANTES
@@ -62,6 +62,12 @@ chamada, não para afirmar cobertura. O slug serve para filtrar (`orgao_code`), 
 > declare que a base termina num ano nem invente um corte temporal. Para uma questão de
 > constitucionalidade recente que a tool não devolveu, remeta o utilizador ao sítio oficial
 > (www.tribunalconstitucional.pt) — é reenvio à fonte, não um censo.
+
+> **Natureza da ligação do Tribunal Constitucional:** um `link_completo` em
+> `dgsi.pt/atco1` é um **espelho histórico**, não o portal oficial. Identifique-o assim e use
+> `tribunalconstitucional.pt` quando for necessária confirmação na fonte oficial. Fora deste
+> caso, apresente `link_completo` como ligação de origem; não transforme o domínio DGSI, por si
+> só, num selo de oficialidade.
 
 ## Escolha da modalidade
 
@@ -191,8 +197,9 @@ LOCALIZADA (possível alucinação) - reporte assim, nunca "provavelmente existe
 
 ## Como citar (obrigatório)
 
-- **Sempre** cite o campo `link_completo` do registo devolvido - é a URL estável do acórdão na
-  DGSI. **Nunca invente** número, sumário, descritor ou link.
+- **Sempre** cite o campo `link_completo` do registo devolvido como ligação de origem. Para
+  `pt_tc`, rotule `dgsi.pt/atco1` como espelho histórico e não como portal oficial. **Nunca
+  invente** número, sumário, descritor ou link.
 - Cite o `tribunal`, o `numero_processo`, o `relator` e a `data_julgamento` quando presentes.
 - **O sumário que recebe é um EXCERTO, não o sumário inteiro, e vem cortado a meio de palavra.**
   O campo chama-se `ementa_snippet` e traz cerca de 280 caracteres em `buscar_hibrida` (1200 em
@@ -243,4 +250,4 @@ corrija aqui em vez de continuar a dizer que não existe.
 - Todas as tools são **somente-leitura** (`readOnlyHint`): não escrevem nada. Se o cliente pedir
   aprovação por chamada, oriente o utilizador a autorizar uma vez e marcar "sempre permitir"; é
   seguro liberar em bloco. Prefira a pesquisa direta (`buscar_hibrida`/`buscar_semantica`), que
-  já devolve sumário e `link_completo` oficial de cada acórdão.
+  já devolve sumário e `link_completo` de origem de cada acórdão.

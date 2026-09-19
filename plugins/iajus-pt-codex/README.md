@@ -1,7 +1,8 @@
 # IAJUS - Jurisprudência PT (plugin Codex)
 
 Pesquisa e cita **jurisprudência portuguesa real** no Codex, pelo servidor MCP
-remoto da IAJUS. As skills orientam o agente a usar a fonte oficial e a nunca citar de memória.
+remoto da IAJUS. As skills orientam o agente a conferir o registo e a proveniência da ligação,
+e a nunca citar de memória.
 
 ## O que inclui
 
@@ -10,10 +11,10 @@ remoto da IAJUS. As skills orientam o agente a usar a fonte oficial e a nunca ci
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
     Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência. Pesquisável por
-    descritor ou por ECLI escrito no texto; o resultado traz o link oficial da DGSI, e o ECLI
-    não vem no envelope.
+    descritor ou por ECLI escrito no texto; o resultado traz a ligação de origem, e o ECLI não
+    vem no envelope.
   - `verificar-citacoes-pt` - veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA /
-    FORA DE ÂMBITO) contra a fonte oficial.
+    FORA DE ÂMBITO) contra o registo e a ligação de origem.
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
   - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
     como responder sem citar direito português de memória.
@@ -21,6 +22,9 @@ remoto da IAJUS. As skills orientam o agente a usar a fonte oficial e a nunca ci
 ## Fontes
 
 - **Jurisprudência:** DGSI (www.dgsi.pt) - bases dos tribunais superiores e das Relações.
+  Para o Tribunal Constitucional, `dgsi.pt/atco1` é um **espelho histórico**; o portal em
+  `tribunalconstitucional.pt` é a fonte oficial. A skill conserva este rótulo de proveniência
+  em vez de presumir que toda ligação DGSI tem a mesma natureza.
 
 Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
 de normas: para o texto de uma lei, a fonte oficial é o Diário da República
