@@ -14,8 +14,7 @@ memória.**
 > **Corpus VIVO e em crescimento:** a base é ingerida continuamente; órgãos e anos novos
 > aparecem na pesquisa automaticamente, sem alteração de skill. Leia `desfecho` ANTES
 > de qualquer contagem: `erro`/`nao_terminou`/`medida_indisponivel` = a consulta não mediu; só
-> `sem_resultado` é zero MEDIDO. Uma excepção real está abaixo, na janela do
-> Tribunal Constitucional — essa é fronteira, não atraso.
+> `sem_resultado` é zero MEDIDO. Um vazio filtrado não é censo nem fronteira permanente.
 
 ## Envelope de desfecho
 
@@ -31,18 +30,19 @@ Leia a chave `desfecho` ANTES de qualquer contagem. Os cinco valores são mutuam
 
 ## Órgãos FILTRÁVEIS (DGSI + Tribunal de Contas)
 
-Janelas medidas em 2026-07-28. A janela serve para **interpretar o vazio**; o slug serve para
-filtrar (`orgao_code`), sempre na forma `pt_<x>`, que é inequívoca - ver as notas de uso.
+Janela **interpretativa, não censo; confirme na tool**. Serve para interpretar um vazio nesta
+chamada, não para afirmar cobertura. O slug serve para filtrar (`orgao_code`), sempre na forma
+`pt_<x>`, que é inequívoca - ver as notas de uso.
 
 > ⚠️ **Esta é a lista do que se pode FILTRAR, não a lista do que a base contém.** Medido em
-> 2026-07-30: o acervo serve ainda **971 unidades do Tribunal de Justiça da União Europeia**
-> (guardadas sob `CJUE`) e **891 do Tribunal Europeu dos Direitos Humanos** (`TEDH`), e o filtro
+> 2026-07-28: o acervo serve ainda unidades do Tribunal de Justiça da União Europeia
+> (guardadas sob `CJUE`) e do Tribunal Europeu dos Direitos Humanos (`TEDH`), e o filtro
 > por tribunal **não as alcança** - o código está guardado em maiúsculas e o filtro liga a forma
 > em minúsculas, que casa zero linhas. Duas consequências para quem lê: **não prometa filtrar por
 > TJUE ou TEDH**, porque não funciona; e **um vazio sob filtro nunca prova ausência** destas duas
-> jurisdições. Não são tribunais portugueses e por isso não entram na contagem dos 12.
+> jurisdições. Não são tribunais portugueses.
 
-| Tribunal | Slug | Anos na base | Nota |
+| Tribunal | Slug | Janela (interpretativa) | Nota |
 |---|---|---|---|
 | Supremo Tribunal de Justiça | `pt_stj` | 1994-2026 | Supremo comum; profere acórdão uniformizador de jurisprudência (AUJ). |
 | Tribunal da Relação de Lisboa | `pt_trl` | 1992-2026 | 2.ª instância. |
@@ -53,16 +53,15 @@ filtrar (`orgao_code`), sempre na forma `pt_<x>`, que é inequívoca - ver as no
 | Supremo Tribunal Administrativo | `pt_sta` | 1950-2026 | Cúpula da jurisdição administrativa e fiscal. |
 | Tribunal Central Administrativo Sul | `pt_tcas` | 1997-2026 | Administrativo e fiscal, 2.ª instância. |
 | Tribunal Central Administrativo Norte | `pt_tcan` | 2004-2026 | Administrativo e fiscal, 2.ª instância. **Pode repetir resultados**. |
-| Tribunal Constitucional | `pt_tc` | **1983-1998** | Fiscalização da constitucionalidade (Art. 281.º CRP). **Ver o aviso abaixo.** |
+| Tribunal Constitucional | `pt_tc` | confirme na tool | Fiscalização da constitucionalidade (Art. 281.º CRP). |
 | Conflitos | `pt_conflitos` | 1969-2026 | Conflitos de jurisdição/competência. **Pode repetir resultados**. |
 | Tribunal de Contas | `pt_tdc` | 2001-2026 | Fiscalização prévia e concomitante das contas públicas. |
 
-> **Tribunal Constitucional: a base termina em 1998.** Não há na base acórdão do TC posterior a
-> 1998. Para uma questão de constitucionalidade recente, **diga-o explicitamente** e não o
-> apresente como "cobertura em andamento" nem escale para o TC à espera de resultado: não vem.
-> Ofereça o que existe - a apreciação da constitucionalidade que o STJ, o STA ou as Relações
-> fazem nos seus próprios acórdãos - e remeta o utilizador ao sítio oficial
-> (www.tribunalconstitucional.pt) para a jurisprudência constitucional posterior a 1998.
+> **Tribunal Constitucional: um vazio nesta chamada não é fronteira permanente.** Se uma
+> consulta filtrada a `pt_tc` devolver `desfecho=sem_resultado`, essa chamada mediu zero; não
+> declare que a base termina num ano nem invente um corte temporal. Para uma questão de
+> constitucionalidade recente que a tool não devolveu, remeta o utilizador ao sítio oficial
+> (www.tribunalconstitucional.pt) — é reenvio à fonte, não um censo.
 
 ## Escolha da modalidade
 
@@ -86,8 +85,7 @@ Notas de uso:
   erro - o que se lê como "não há jurisprudência do Supremo", uma afirmação falsa sobre o Direito.
   Corrigido na origem em 2026-07-28 (o resolvedor passou a ser por linha: em Portugal `STJ`
   resolve para `pt_stj`, e uma sigla que exista nas DUAS linhas devolve ambiguidade em vez de
-  eleger o Brasil), **mas a correção só vale depois de o servidor ser atualizado**. Escreva o
-  slug e a questão não se põe.
+  eleger o Brasil). Escreva o slug e a questão não se põe.
 - **O slug alcança o tribunal inteiro; o que a grafia dupla estraga é a repetição.** Cinco
   órgãos estão guardados sob duas grafias (`pt_<x>` e `<x>_pt`), mas medido em 2026-07-28 o
   filtro `pt_<x>` alcança **todos** os acórdãos distintos de cada um deles. O efeito real é
@@ -102,15 +100,13 @@ Notas de uso:
 
 ## Acórdãos uniformizadores de jurisprudência (AUJ)
 
-**Existem 649 AUJ do Supremo Tribunal de Justiça na base** e citam-se pelo teor. Só o Supremo
-uniformiza jurisprudência (art. 686.º CPC): um acórdão de Relação nunca é AUJ, por muito que
-cite um.
+Só o Supremo Tribunal de Justiça uniformiza jurisprudência (art. 686.º CPC): um acórdão de Relação nunca é AUJ, por muito que cite um. Cite pelo teor. O número que existe é o que a tool devolver nesta chamada, não um censo gravado aqui.
 
 **Como chegar lá, e há duas portas:**
 
 1. **`buscar_qualificada(tipo='auj')`** - devolve AUJ com `enunciado` e `link_completo` da DGSI.
    Aceita a alcunha `'auj'` ou a espécie por extenso `'acordao_uniformizador_jurisprudencia'`, e
-   opcionalmente `orgao='pt_stj'` e `k`. (Medido 2026-07-29 no servidor vivo.)
+   opcionalmente `orgao='pt_stj'` e `k`.
 2. **As modalidades de pesquisa acima** - um AUJ está indexado com o mesmo texto e o mesmo
    `link_completo` que qualquer acórdão. Pesquise a tese ("uniformização de jurisprudência" mais
    o tema, ou só o tema) e leia o que volta.
@@ -124,29 +120,31 @@ a segunda encontra pelo tema mas não distingue o AUJ do acórdão comum que o c
   continua a devolver 10. O campo `total` do envelope conta **o que voltou, não o que existe**.
   **Nunca** apresente o que voltou como a lista completa, e **nunca** conte AUJ a partir deste
   `total` - é a diferença entre informar e afirmar algo falso sobre o Direito português.
-- **Passe `orgao='pt_stj'`. É o filtro que separa, e é o único.** A tabela tem **682** linhas com
-  esta espécie, mas só as **649** do Supremo são AUJ: as outras **33** são acórdãos da Relação de
-  Lisboa que CITAM ou discutem um AUJ e ficaram com a espécie errada por defeito de classificação
-  da fonte. Se apresentar uma dessas como acórdão uniformizador, é o assistente que afirma que a
-  Relação uniformizou jurisprudência - e é falso (art. 686.º do CPC: só o Supremo uniformiza).
-- **Os dois campos de marca NÃO discriminam bom de mau, e usá-los como filtro rejeita os 649.**
-  O servidor não esconde nem mente - serve as 33 marcadas com `uniformizador_valido: false` e um
-  `aviso_uniformizador`. Mas leia com cuidado o que cada marca significa:
-  - `uniformizador_valido` **só existe na linha defeituosa**. Nas 649 boas a chave está
+- **Passe `orgao='pt_stj'`. É o filtro que separa, e é o único.** Só o Supremo uniformiza
+  (art. 686.º CPC). Há linhas com a espécie AUJ que são acórdãos da Relação de Lisboa que CITAM
+  ou discutem um AUJ e ficaram com a espécie errada por defeito de classificação da fonte. Se
+  apresentar uma dessas como acórdão uniformizador, é o assistente que afirma que a Relação
+  uniformizou jurisprudência - e é falso.
+- **Leia `uniformizador_valido` antes de tratar um resultado como AUJ.** O servidor não esconde
+  nem mente - serve as linhas mal classificadas da Relação marcadas com
+  `uniformizador_valido: false` e um `aviso_uniformizador`. Mas leia com cuidado o que cada
+  marca significa:
+  - `uniformizador_valido` **só existe na linha defeituosa**. Nas linhas boas a chave está
     **AUSENTE**, nunca `true`. Ausência aqui é ausência de objeção, nunca um atestado - quem
     exigir `uniformizador_valido == true` não encontra nenhuma e conclui que não há AUJ nenhum.
-  - `citavel_como_precedente` vem **`false` nas 682**, incluindo as 649 boas. Não é a marca das
-    33: é consequência de a vigência não estar registada (ver o ponto seguinte), e o campo exige
-    vigência **em vigor** para sair `true`. Como discriminador de espécie, não serve.
+  - `citavel_como_precedente` vem **`false` também nas linhas boas**. Não é a marca da Relação
+    mal classificada: é consequência de a vigência não estar registada (ver o ponto seguinte),
+    e o campo exige vigência **em vigor** para sair `true`. Como discriminador de espécie, não
+    serve.
 - **`materia` e `numero` não selecionam AUJ.** `materia='civil'` devolve 0 e `numero='8/2022'`
-  devolve 0, porque o campo por trás de `materia` está a NULL nos 682 registos e `numero` guarda
+  devolve 0, porque o campo por trás de `materia` está a NULL nestes registos e `numero` guarda
   o identificador documental da DGSI (um hash), não o número citável do acórdão. Para chegar ao
   **AUJ n.º 8/2022 pelo número**, pesquise-o pelas modalidades de texto, não por `numero`.
-- Uma pesquisa por "uniformização" **não devolve o conjunto**: só cerca de um terço dos AUJ usa
+- Uma pesquisa por "uniformização" **não devolve o conjunto**: só parte dos AUJ usa
   essa palavra no sumário. Não conclua a partir do que voltou que os restantes não existem.
-- A base **não regista vigência** de AUJ - vêm todos com `status_vigencia: "desconhecida"`, e a
-  estatística conta 0 vigentes e 0 canceladas em 682. **Nunca** afirme que um está vigente,
-  revogado ou superado; cite pelo teor e remeta a confirmação à fonte oficial (DGSI).
+- A base **não regista vigência** de AUJ - vêm com `status_vigencia: "desconhecida"`. Zero em
+  vigentes/canceladas é **não medido**. **Nunca** afirme que um está vigente, revogado ou
+  superado; cite pelo teor e remeta a confirmação à fonte oficial (DGSI).
 
 ## Método do pesquisador (4 passos)
 
@@ -165,7 +163,8 @@ modalidade até a cobertura estabilizar.
      citação de artigo/ECLI -> `buscar_regex`;
    - **suba na hierarquia de autoridade:** se uma Relação vier vazia para a tese, tente o
      Supremo competente (STJ para o comum, STA para o administrativo/fiscal) - a tese firmada
-     costuma estar lá. **Para constitucionalidade, releia a janela do TC acima antes de subir.**
+     costuma estar lá. **Para constitucionalidade, um vazio em `pt_tc` com
+     `desfecho=sem_resultado` é zero desta chamada, não uma fronteira permanente.**
 2. **Prefira o consolidado ao acórdão isolado.** Para "qual o entendimento atual", um AUJ do
    Supremo vale mais que um acórdão de Relação; se um AUJ aparecer nos resultados, ancore nele
    e use os acórdãos comuns para exemplificar a aplicação da tese.
@@ -174,7 +173,8 @@ modalidade até a cobertura estabilizar.
 4. **Envelope de honestidade.** Leia `desfecho` primeiro: `sem_resultado` é zero
    MEDIDO (cobertura em andamento, não «o precedente não existe» — ofereça a fonte
    superior); `erro`/`nao_terminou`/`medida_indisponivel` é NÃO-MEDIDO; `parcial` declara o que ficou de
-   fora. No TC pós-1998 é **fronteira da base**. Nunca preencha a lacuna com um
+   fora. Se a consulta ao TC devolver `sem_resultado`, essa chamada mediu zero; remeta à
+   fonte oficial se a questão for recente e a tool não a devolveu. Nunca preencha a lacuna com um
    precedente fabricado.
 
 ## Passada de conferência anti-alucinação (obrigatória antes de entregar)

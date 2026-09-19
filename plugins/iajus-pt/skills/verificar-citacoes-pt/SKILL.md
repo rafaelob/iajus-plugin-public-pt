@@ -72,7 +72,14 @@ Esta é a parte a ler primeiro, porque o mais perigoso aqui não é falhar uma v
   **Nunca** apresente o que voltou como a lista completa e **nunca** conclua, de um resultado
   vazio ou curto, que o AUJ citado não existe: escale para as modalidades de texto antes de
   emitir NÃO LOCALIZADA.
-- **Leia `uniformizador_valido` antes de tratar um resultado como AUJ.** A tabela tem 682 linhas com esta espécie, mas só as **649** do Supremo são AUJ: as outras **33** são acórdãos da Relação de Lisboa que citam ou discutem um AUJ e ficaram com a espécie errada por defeito de classificação da fonte. O servidor serve-as marcadas, com `uniformizador_valido: false`, `citavel_como_precedente: false` e um `aviso_uniformizador` que invoca o art. 686.º do CPC. **O servidor faz a metade dele; esta é a sua.** Confirmar uma dessas como acórdão uniformizador é afirmar que a Relação uniformizou jurisprudência - e é falso. Para receber só as do Supremo, passe `orgao='pt_stj'`.
+- **Leia `uniformizador_valido` antes de tratar um resultado como AUJ.** Só o Supremo
+  Tribunal de Justiça uniformiza jurisprudência (art. 686.º do CPC): um acórdão de Relação
+  nunca é AUJ, por muito que cite um. Há linhas com a espécie AUJ que são acórdãos da Relação
+  de Lisboa mal classificados; o servidor serve-as marcadas, com `uniformizador_valido: false`,
+  `citavel_como_precedente: false` e um `aviso_uniformizador` que invoca o art. 686.º do CPC.
+  **O servidor faz a metade dele; esta é a sua.** Confirmar uma dessas como acórdão
+  uniformizador é afirmar que a Relação uniformizou jurisprudência - e é falso. Para receber
+  só as do Supremo, passe `orgao='pt_stj'`.
 - **`materia` e `numero` não selecionam AUJ**: o campo por trás de `materia` está a nulo em todos
   os registos e `numero` guarda o identificador documental da DGSI, não o número citável. Para
   conferir "o AUJ n.º 8/2022", procure-o pelas modalidades de texto, nunca por `numero`.
@@ -108,8 +115,8 @@ Cada citação é uma unidade independente. Esgote a busca antes de reprovar qua
 - **NÃO LOCALIZADA** - a fonte não devolveu a citação depois da escalada completa. **É um alerta
   de possível alucinação**: reporte como não verificada, nunca como "provavelmente existe".
   Distinga honestamente as duas hipóteses e diga qual os sinais sustentam: (a) citação fabricada;
-  (b) limite da base - por exemplo, um acórdão do Tribunal Constitucional posterior a 1998, que é
-  fronteira medida da base e não ausência na realidade.
+  (b) não encontrada nesta chamada, depois da escalada completa — zero medido neste pedido, não
+  um corte de ano inventado nem uma fronteira permanente.
 - **FORA DE ÂMBITO** - a citação não é de jurisprudência portuguesa servida por esta superfície
   (norma, doutrina, jurisprudência estrangeira). **Não é um veredicto sobre a citação**: é a
   declaração de que esta via não a alcança. Diga-o e indique a fonte oficial adequada.

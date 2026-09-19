@@ -3,6 +3,31 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.3] - 2026-09-19
+
+### Adicionado
+- Logo servida em `iajus.pt/icon-512.png` no bundle (`assets/iajus-pt-icon-512.png`) e pacote
+  de submissão ChatGPT (`saas/clients/plugin_pt/`: 8 tools do perfil `pt`, MCP
+  `https://pt.mcp.iajus.com.br/mcp`, ZIPs das quatro skills). Não é o plugin brasileiro de 28
+  tools. Publicação no marketplace e no Plugin Directory da OpenAI continua a ser do ARQ.
+
+## [1.5.2] - 2026-09-18
+
+### Corrigido
+- `pesquisar-jurisprudencia-pt` e `verificar-citacoes-pt` deixam de congelar contagens de AUJ
+  (649/682/33) e a fronteira TC-1998 como cobertura. Só o STJ uniformiza (art. 686.º CPC);
+  `uniformizador_valido` continua a marcar as linhas da Relação mal classificadas. Um vazio
+  filtrado ao TC com `desfecho=sem_resultado` é zero desta chamada, não censo.
+
+## [1.5.1] - 2026-09-18
+
+### Corrigido
+- `estado-corpus-pt` reporta **apenas os números vivos** de `obter_estatisticas_base`. Sai o
+  censo congelado de 2026-07-28 (331.045 acórdãos / 12 tribunais / tabela de anos, incluindo a
+  fronteira TC 1983-1998) e o fallback 682→649. Um envelope de erro **não é ausência**; zero num
+  campo de vigência **não está medido**. A skill não preenche cobertura a partir da memória nem
+  de qualquer censo gravado nela.
+
 ## [1.5.0] - 2026-08-16
 
 ### Adicionado

@@ -2,6 +2,27 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.3] - 2026-09-19
+
+### Adicionado
+- Mesma alteração da gémea Claude: logo `iajus.pt/icon-512.png` no bundle e pacote ChatGPT
+  do perfil `pt` (8 tools). Skills continuam byte-idênticas entre os dois.
+
+## [1.5.2] - 2026-09-18
+
+### Corrigido
+- Mesma alteração da gémea Claude, e os ficheiros das skills continuam byte-idênticos entre os
+  dois. `pesquisar-jurisprudencia-pt` e `verificar-citacoes-pt` deixam de congelar contagens de
+  AUJ e a fronteira TC-1998 como cobertura; art. 686.º e `uniformizador_valido` mantêm-se.
+
+## [1.5.1] - 2026-09-18
+
+### Corrigido
+- Mesma alteração da gémea Claude, e os ficheiros das skills continuam byte-idênticos entre os
+  dois. `estado-corpus-pt` reporta apenas os números vivos de `obter_estatisticas_base`; sai o
+  censo congelado de 2026-07-28 e o fallback 682→649. Envelope de erro não é ausência; zero de
+  vigência não está medido.
+
 ## [1.5.0] - 2026-08-16
 
 ### Adicionado
