@@ -2,6 +2,15 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.5] - 2026-09-20
+
+### Corrigido
+- O Tribunal de Contas é atribuído ao TCJure, não à DGSI; o manifesto liga os ícones
+  distribuídos, pede apenas os scopes OAuth necessários e limita os prompts ao formato
+  suportado pelo cliente.
+- A raiz Codex passa a distribuir a mesma licença proprietária já publicada pela gémea
+  Claude. O guia do operador e os cinco manifestos declaram a mesma versão.
+
 ## [1.5.4] - 2026-09-19
 
 ### Corrigido

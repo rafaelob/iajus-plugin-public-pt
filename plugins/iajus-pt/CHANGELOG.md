@@ -3,6 +3,15 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.5] - 2026-09-20
+
+### Corrigido
+- O Tribunal de Contas é atribuído ao TCJure, não à DGSI; os dois manifestos MCP pedem
+  apenas os scopes OAuth necessários.
+- A gémea Codex passa a distribuir a licença própria, a ligar os ícones incluídos no bundle
+  e a respeitar os limites de prompts do cliente. O guia do operador e os cinco manifestos
+  declaram a mesma versão.
+
 ## [1.5.4] - 2026-09-19
 
 ### Corrigido

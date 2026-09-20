@@ -9,8 +9,8 @@ e a nunca citar de memória.
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`).
 - **Quatro skills pt-PT:**
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
-    Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional, Conflitos e
-    Tribunal de Contas, via DGSI; acórdão uniformizador de jurisprudência. Pesquisável por
+    Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional e Conflitos
+    via DGSI, e Tribunal de Contas via TCJure; acórdão uniformizador de jurisprudência. Pesquisável por
     descritor ou por ECLI escrito no texto; o resultado traz a ligação de origem, e o ECLI não
     vem no envelope.
   - `verificar-citacoes-pt` - veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA /
@@ -25,6 +25,7 @@ e a nunca citar de memória.
   Para o Tribunal Constitucional, `dgsi.pt/atco1` é um **espelho histórico**; o portal em
   `tribunalconstitucional.pt` é a fonte oficial. A skill conserva este rótulo de proveniência
   em vez de presumir que toda ligação DGSI tem a mesma natureza.
+- **Tribunal de Contas:** TCJure (`tcjure.tcontas.pt`), não DGSI.
 
 Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
 de normas: para o texto de uma lei, a fonte oficial é o Diário da República
