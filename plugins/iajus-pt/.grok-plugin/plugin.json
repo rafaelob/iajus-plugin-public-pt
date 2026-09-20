@@ -2,7 +2,7 @@
   "name": "iajus-pt",
   "displayName": "IAJUS - Portuguese Case Law Research",
   "description": "Portuguese case law research through the hosted IAJUS MCP server, including Supreme Court and Courts of Appeal decisions sourced through DGSI, with source links and explicit provenance. For Constitutional Court results, dgsi.pt/atco1 is labelled as a historical mirror and tribunalconstitucional.pt as the official portal. Includes four pt-PT legal-research skills and OAuth 2.1 authentication.",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "author": {
     "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
     "email": "contato@iajus.com.br"

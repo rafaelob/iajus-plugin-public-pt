@@ -150,7 +150,8 @@ a segunda encontra pelo tema mas não distingue o AUJ do acórdão comum que o c
   essa palavra no sumário. Não conclua a partir do que voltou que os restantes não existem.
 - A base **não regista vigência** de AUJ - vêm com `status_vigencia: "desconhecida"`. Zero em
   vigentes/canceladas é **não medido**. **Nunca** afirme que um está vigente, revogado ou
-  superado; cite pelo teor e remeta a confirmação à fonte oficial (DGSI).
+  superado; cite pelo teor, use a ligação de origem devolvida e remeta a confirmação do estado
+  à fonte competente.
 
 ## Método do pesquisador (4 passos)
 
