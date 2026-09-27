@@ -1,7 +1,6 @@
 ---
 name: verificar-citacoes-pt
 description: 'Confere uma a uma as citações de jurisprudência PORTUGUESA de um texto (peça, parecer, alegações, minuta) contra os registos e ligações de origem devolvidos pelo MCP IAJUS, com veredicto por citação: CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO. Accione em "confira os acórdãos citados", "este acórdão existe ou foi inventado?", "valide os precedentes desta peça". NÃO pesquisa de raiz nem confere normas ou vigência.'
-allowed-tools: mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex, mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_hibrida, mcp__plugin_iajus-pt_iajus-pt__buscar_hibrida, mcp__iajus-pt__buscar_semantica, mcp__plugin_iajus-pt_iajus-pt__buscar_semantica, mcp__iajus-pt__buscar_qualificada, mcp__plugin_iajus-pt_iajus-pt__buscar_qualificada
 ---
 
 # Verificar citações de jurisprudência portuguesa (IAJUS)

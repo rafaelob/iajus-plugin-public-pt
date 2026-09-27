@@ -3,6 +3,16 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.6] - 2026-09-27
+
+### Corrigido
+- Ajustes pedidos pela verificação do diretório de plugins do Claude. O manifesto passa a
+  declarar a política de privacidade e os termos de utilização, e as quatro skills deixam de
+  pré-autorizar ferramentas MCP em `allowed-tools`: cada chamada segue as permissões do próprio
+  utilizador. O README explica como autorizá-las no Claude Code, no claude.ai e no Cowork, e o
+  que o plugin envia ao servidor.
+- As entradas antigas deste registo descrevem o ícone sem citar o caminho do ficheiro.
+
 ## [1.5.5] - 2026-09-20
 
 ### Corrigido
@@ -23,7 +33,7 @@ Todas as alterações relevantes deste plugin são registadas aqui. Formato base
 ## [1.5.3] - 2026-09-19
 
 ### Adicionado
-- Logo servida em `iajus.pt/icon-512.png` no bundle (`assets/iajus-pt-icon-512.png`) e pacote
+- Logo IAJUS.pt de 512 px, a mesma que o site serve, no bundle e no pacote
   de submissão ChatGPT (`saas/clients/plugin_pt/`: 8 tools do perfil `pt`, MCP
   `https://pt.mcp.iajus.com.br/mcp`, ZIPs das quatro skills). Não é o plugin brasileiro de 28
   tools. Publicação no marketplace e no Plugin Directory da OpenAI continua a ser do ARQ.

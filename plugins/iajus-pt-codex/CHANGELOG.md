@@ -2,6 +2,14 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.6] - 2026-09-27
+
+### Corrigido
+- Acompanha a versão da gémea Claude, que deixou de pré-autorizar ferramentas MCP para cumprir
+  a verificação do diretório de plugins do Claude. Nas skills Codex, `allowed-tools` mantém-se;
+  o corpo de cada skill continua idêntico ao da gémea Claude.
+- As entradas antigas deste registo descrevem o ícone sem citar o caminho do ficheiro.
+
 ## [1.5.5] - 2026-09-20
 
 ### Corrigido
@@ -21,7 +29,7 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 ## [1.5.3] - 2026-09-19
 
 ### Adicionado
-- Mesma alteração da gémea Claude: logo `iajus.pt/icon-512.png` no bundle e pacote ChatGPT
+- Mesma alteração da gémea Claude: logo IAJUS.pt de 512 px no bundle e no pacote ChatGPT
   do perfil `pt` (8 tools). Skills continuam byte-idênticas entre os dois.
 
 ## [1.5.2] - 2026-09-18

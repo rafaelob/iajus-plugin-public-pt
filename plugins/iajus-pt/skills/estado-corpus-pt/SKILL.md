@@ -1,7 +1,6 @@
 ---
 name: estado-corpus-pt
 description: Mostra o que o corpus português da IAJUS contém AGORA (por tribunal, ano e acervo) pelo MCP IAJUS. Acione antes de concluir que "não existe" jurisprudência para um tribunal/ano - um resultado vazio na pesquisa pode ser cobertura em andamento, e esta skill confirma o que já está na base.
-allowed-tools: mcp__iajus-pt__obter_estatisticas_base, mcp__plugin_iajus-pt_iajus-pt__obter_estatisticas_base
 ---
 
 # Estado do corpus português (IAJUS)

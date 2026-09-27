@@ -1,7 +1,6 @@
 ---
 name: fora-de-ambito-pt
 description: 'Responde honestamente ao que o corpus português da IAJUS NÃO serve: legislação portuguesa (leis, decretos-leis, códigos), doutrina, vigência e classificação temática. Accione quando pedirem "qual a lei que regula X", "o que diz o artigo N.º do Código Civil", "esta norma ainda está em vigor", ou quando uma tool devolver uma recusa do servidor. Impede que o assistente cite direito português de memória e encaminha para o Diário da República e para a jurisprudência que aplica a norma.'
-allowed-tools: mcp__iajus-pt__buscar_fts, mcp__plugin_iajus-pt_iajus-pt__buscar_fts, mcp__iajus-pt__buscar_regex, mcp__plugin_iajus-pt_iajus-pt__buscar_regex
 ---
 
 # O que esta superfície não serve, e como responder mesmo assim (IAJUS)
