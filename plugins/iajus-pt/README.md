@@ -6,9 +6,8 @@ orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca
 
 ## O que inclui
 
-- **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com pesquisa e
-  leitura de jurisprudência PT.
-- **Quatro skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
+- **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com pesquisa de jurisprudência PT e ligações de origem.
+- **Cinco skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
   pesquisa e conferir cada citação antes de entregar:
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional e Conflitos
@@ -17,6 +16,7 @@ orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca
     não vem no envelope.
   - `verificar-citacoes-pt` - confere as citações de jurisprudência de uma peça contra a fonte,
     com veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO).
+  - `pesquisa-juridica-lex-pt` - envia a pergunta e o contexto completos ao Lex quando exposto nesta ligação; preserva IDs e chave de repetição para acompanhar a mesma pesquisa.
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
   - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
     como responder sem citar direito português de memória.

@@ -3,6 +3,20 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.13] - 2026-10-01
+
+### Alterado
+
+- A pesquisa orienta páginas de 20 resultados por defeito, quantidade ajustável de 1 a 100 e continuação por cursor, quando a ferramenta nova estiver disponível. Híbrida, semântica e textual percorrem até três páginas, limitadas a 100 resultados; fim da janela não significa fim do acervo.
+- As instruções continuam a preservar filtros e proveniência portuguesa. Esta distribuição não ativa o novo MCP.
+
+## [1.5.9] - 2026-10-01
+
+### Alterado
+
+- As cinco skills portuguesas distinguem as oito ferramentas novas das interfaces legadas. A pesquisa Lex preserva contexto, restrições, IDs e a chave de repetição. Os resultados mantêm proveniência, estados não medidos e a indicação de classificação inconsistente de uniformizadores.
+- Esta atualização de instruções não ativa o novo MCP: use apenas as ferramentas expostas pela ligação instalada.
+
 ## [1.5.6] - 2026-09-27
 
 ### Corrigido

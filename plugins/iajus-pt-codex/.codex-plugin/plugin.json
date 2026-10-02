@@ -1,7 +1,7 @@
 {
   "name": "iajus-pt",
-  "version": "1.5.6",
-  "description": "Pesquisa e cita jurisprudência portuguesa pelo MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e quatro skills pt-PT outcome-first para pesquisa, citações, estado do corpus e limites de âmbito. Instala skills e MCP juntos, com OAuth 2.1 por defeito e chave ik_* apenas como alternativa privada.",
+  "version": "1.5.14",
+  "description": "Pesquisa e cita jurisprudência portuguesa pelo MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e cinco skills pt-PT outcome-first para pesquisa, citações, estado do corpus e limites de âmbito. Instala skills e MCP juntos, com OAuth 2.1 por defeito e chave ik_* apenas como alternativa privada.",
   "author": {
     "name": "IAJUS / Celeris",
     "email": "contato@iajus.com.br",
@@ -16,11 +16,12 @@
   "interface": {
     "displayName": "IAJUS - Jurisprudência PT",
     "shortDescription": "Jurisprudência portuguesa",
-    "longDescription": "Pesquise acórdãos portugueses em modalidades complementares e confira cada citação no registo e na ligação de origem com proveniência explícita. No Tribunal Constitucional, dgsi.pt/atco1 é espelho histórico e tribunalconstitucional.pt é o portal oficial. O plugin conecta quatro skills pt-PT ao MCP remoto read-only do IAJUS, com autenticação OAuth 2.1.",
+    "longDescription": "Pesquise acórdãos portugueses em modalidades complementares e confira cada citação no registo e na ligação de origem com proveniência explícita. No Tribunal Constitucional, dgsi.pt/atco1 é espelho histórico e tribunalconstitucional.pt é o portal oficial. O plugin conecta cinco skills pt-PT ao MCP remoto do IAJUS, com autenticação OAuth 2.1.",
     "developerName": "IAJUS / Celeris",
     "category": "Productivity",
     "capabilities": ["Read"],
     "websiteURL": "https://iajus.pt",
+    "supportURL": "https://iajus.pt/contacto.html",
     "privacyPolicyURL": "https://iajus.pt/privacidade",
     "termsOfServiceURL": "https://iajus.pt/termos",
     "defaultPrompt": [

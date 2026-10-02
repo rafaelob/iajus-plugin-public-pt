@@ -7,7 +7,7 @@ e a nunca citar de memória.
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`).
-- **Quatro skills pt-PT:**
+- **Cinco skills pt-PT:**
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional e Conflitos
     via DGSI, e Tribunal de Contas via TCJure; acórdão uniformizador de jurisprudência. Pesquisável por
@@ -15,6 +15,7 @@ e a nunca citar de memória.
     vem no envelope.
   - `verificar-citacoes-pt` - veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA /
     FORA DE ÂMBITO) contra o registo e a ligação de origem.
+  - `pesquisa-juridica-lex-pt` - envia a pergunta e o contexto completos ao Lex quando exposto nesta ligação; preserva IDs e chave de repetição para acompanhar a mesma pesquisa.
   - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
   - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
     como responder sem citar direito português de memória.

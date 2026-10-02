@@ -2,6 +2,20 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.14] - 2026-10-01
+
+### Alterado
+
+- Acompanha a orientação da distribuição Claude: 20 resultados por página por defeito, quantidade ajustável e cursor para percorrer até três páginas, limitadas a 100 resultados. Fim da janela não equivale a fim do acervo.
+- Mantém os argumentos próprios das ferramentas legadas quando apenas essas estiverem disponíveis; esta distribuição não ativa o novo MCP.
+
+## [1.5.10] - 2026-10-01
+
+### Alterado
+
+- As cinco skills acompanham os corpos da distribuição Claude, mantendo allowed-tools no formato Codex. Documentam as oito ferramentas novas quando disponíveis e preservam o caminho legado e a proveniência portuguesa. A versão também incorpora a correção de suporte já sinalizada no manifesto 1.5.7.
+- Esta atualização de instruções não ativa o novo MCP: use apenas as ferramentas expostas pela ligação instalada.
+
 ## [1.5.6] - 2026-09-27
 
 ### Corrigido
