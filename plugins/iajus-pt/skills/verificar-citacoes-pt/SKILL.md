@@ -5,6 +5,8 @@ description: "Confere citações de jurisprudência portuguesa uma a uma contra 
 
 # Verificar citações de jurisprudência portuguesa (IAJUS)
 
+No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
+
 Extraia cada citação e a afirmação que o texto lhe atribui. Consulte a lista de ferramentas desta ligação e use apenas as ferramentas e esquemas nela presentes. Para pesquisa de raiz, use a skill pesquisar-jurisprudencia-pt.
 
 ## Pesquisar cada citação
@@ -25,6 +27,10 @@ Com pesquisar_decisoes, construa busca segundo o modo e os filtros PT aceites. N
 - NÃO LOCALIZADA: uma pesquisa concluída não encontrou a referência. Significa apenas que não foi localizada neste pedido e recorte, não que a citação seja necessariamente fabricada.
 - NÃO VERIFICÁVEL: erro, timeout, resposta parcial, medida indisponível ou excerto insuficiente para comparar a afirmação.
 - FORA DE ÂMBITO: legislação, doutrina ou jurisprudência de outro ordenamento.
+
+Reaja aos sinais da pesquisa como em pesquisar-jurisprudencia-pt: input_contract_refused, corrija a entrada; filtro_nao_suportado ou filtros_ignorados, retire o filtro nomeado e informe que não foi aplicado; parcial com janela_limitada, continue pelo cursor; incompleta com falha_busca ou timeout, repita uma vez mais estreito e, persistindo, declare NÃO VERIFICÁVEL, nunca NÃO LOCALIZADA. Um acórdão que apenas cita o número não é o processo citado.
+
+Os dados de julgamento (relator, vencidos, votos, resultado, tese, data) só valem se vierem de um excerto devolvido nesta conversa; sem ele, escreva «não localizei esse dado no excerto do acórdão». Se o utilizador contestar o veredicto, volte a consultar pelo número completo e cite o excerto.
 
 Nunca confirme de memória. Não infira vigência, força ou relações entre acórdãos a partir da presença de um registo. Se o serviço devolver uma ligação de origem, preserve-a e descreva a origem como indicada; não invente links nem apresente automaticamente a fonte como oficial.
 

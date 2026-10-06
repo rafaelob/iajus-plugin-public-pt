@@ -2,6 +2,28 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [1.5.17] - 2026-10-05
+
+### Alterado
+
+- As skills ensinam a pesquisar um número de processo ou ECLI como texto literal, a reagir a cada recusa ou selo da pesquisa (entrada recusada, filtro não aplicado, janela limitada, pesquisa que falhou, zero medido) e a fundamentação rigorosa: os dados de um julgamento só valem se vierem de um excerto devolvido na conversa.
+- Quando as ferramentas IAJUS faltam ou respondem 401, a skill manda executar `codex mcp login iajus-pt` e reiniciar a sessão.
+- Nenhuma ferramenta, rota ou esquema muda.
+
+## [1.5.16] - 2026-10-05
+
+### Alterado
+
+- As ferramentas apagar_conversa_lex e cancelar_tarefa_lex deixam de estar pré-autorizadas no allowed-tools: o Codex pergunta ao utilizador antes de as executar. A skill continua a ensiná-las e a só apagar uma conversa a pedido expresso do utilizador.
+- As instruções continuam condicionadas às ferramentas expostas pela ligação instalada.
+
+## [1.5.15] - 2026-10-05
+
+### Alterado
+
+- Acompanha a orientação da distribuição Claude: a skill de pesquisa Lex ensina apagar_conversa_lex, só a pedido expresso do utilizador e de forma definitiva, e a ferramenta entra no allowed-tools no formato Codex. A conversa pode ser continuada durante 168 horas e fica guardada até ser apagada.
+- As instruções continuam condicionadas às ferramentas expostas pela ligação instalada.
+
 ## [1.5.14] - 2026-10-01
 
 ### Alterado

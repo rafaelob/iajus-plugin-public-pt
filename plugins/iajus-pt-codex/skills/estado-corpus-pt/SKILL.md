@@ -6,6 +6,8 @@ allowed-tools: mcp__iajus-pt__consultar_acervo, mcp__plugin_iajus-pt_iajus-pt__c
 
 # Estado do acervo português (IAJUS)
 
+No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
+
 Antes de consultar, veja quais ferramentas esta ligação expõe. Use apenas uma ferramenta presente na lista e siga o respetivo esquema. Se consultar_acervo estiver disponível, use o ramo abaixo; se só estiver exposta a interface legada obter_estatisticas_base, use os argumentos que essa ferramenta anuncia. Não misture as duas formas de entrada nem suponha que uma ferramenta ausente está disponível.
 
 Use esta consulta para interpretar cobertura, atualidade ou uma pesquisa sem resultados. Não transforme um resultado vazio de pesquisa num retrato do acervo.

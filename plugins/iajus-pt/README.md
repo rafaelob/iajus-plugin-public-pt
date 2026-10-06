@@ -70,11 +70,24 @@ utilizador, e as skills não pré-autorizam nenhuma.
   (global) ou ao `.claude/settings.local.json` (do projeto):
 
   ```json
-  { "permissions": { "allow": ["mcp__plugin_iajus-pt_iajus-pt__*"] } }
+  {
+    "permissions": {
+      "allow": ["mcp__plugin_iajus-pt_iajus-pt__*"],
+      "ask": [
+        "mcp__plugin_iajus-pt_iajus-pt__apagar_conversa_lex",
+        "mcp__plugin_iajus-pt_iajus-pt__cancelar_tarefa_lex"
+      ]
+    }
+  }
   ```
 
   Uma ferramenta de plugin chama-se `mcp__plugin_<plugin>_<servidor>__<ferramenta>`; aqui o
-  plugin e o servidor chamam-se ambos `iajus-pt`, e o `*` cobre todas as ferramentas.
+  plugin e o servidor chamam-se ambos `iajus-pt`, e o `*` cobre todas as ferramentas. As duas
+  que apagam ou cancelam de forma irreversível (`apagar_conversa_lex` e `cancelar_tarefa_lex`)
+  ficam em `ask` e **pedem sempre confirmação**: o Claude Code avalia as regras na ordem
+  `deny`, `ask`, `allow`, e uma regra `ask` que casa pede confirmação mesmo quando um `allow`
+  mais amplo também casa a mesma chamada
+  ([permissões do Claude Code](https://code.claude.com/docs/en/permissions)).
 - **claude.ai e Cowork:** no separador **Connectors** do plugin, abra o conector `iajus-pt` e
   escolha, ferramenta a ferramenta, quais ficam sempre permitidas.
 
@@ -91,7 +104,9 @@ utilizador, e as skills não pré-autorizam nenhuma.
 
 ## Notas
 
-- Todas as tools são **somente-leitura**: pesquisam e citam, nunca escrevem.
+- As tools de pesquisa dos acervos são **somente-leitura**: pesquisam e citam, nunca escrevem.
+  As tools do perfil Lex guardam conversas e tarefas no IAJUS; apagar uma conversa ou cancelar
+  uma tarefa é irreversível e pede sempre confirmação.
 - Preserve os acentos e o UTF-8 exatamente como na fonte.
 - Vocabulário e direito **português** (não brasileiro): acórdão, Tribunal da Relação, DGSI,
   ECLI, descritores, acórdão uniformizador de jurisprudência.
