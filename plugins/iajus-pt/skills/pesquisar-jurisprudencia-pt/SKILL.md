@@ -5,7 +5,7 @@ description: "Pesquisa jurisprudência portuguesa com pesquisar_decisoes e pesqu
 
 # Pesquisar jurisprudência portuguesa (IAJUS)
 
-No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
+Se a ligação devolver 401 ou pedir autenticação, oriente a reconexão do IAJUS PT nos conectores do Claude; no Claude Code, use `/mcp` para autenticar o servidor desta ligação. Não peça tokens nem palavras-passe no chat. Uma recusa de permissão ou de plano não se resolve por repetir o login: informe o limite devolvido. Se uma ferramenta não estiver listada após autenticação, informe a indisponibilidade nesta ligação; não invente nomes nem responda ao mérito jurídico de memória.
 
 Veja primeiro as ferramentas expostas nesta ligação. Use apenas as que aparecem e siga o esquema de cada uma. Para decisões, a ferramenta é pesquisar_decisoes, com um objeto busca cujo campo modo é um dos quatro modos portugueses abaixo; para precedentes qualificados, pesquisar_precedentes.
 

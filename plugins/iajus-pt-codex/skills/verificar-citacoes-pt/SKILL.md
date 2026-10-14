@@ -6,7 +6,7 @@ allowed-tools: mcp__iajus-pt__pesquisar_decisoes, mcp__plugin_iajus-pt_iajus-pt_
 
 # Verificar citações de jurisprudência portuguesa (IAJUS)
 
-No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
+Se a ligação devolver 401 ou pedir autenticação, oriente a reconexão no host: no ChatGPT, reconectar o IAJUS PT pelas definições da ligação; no Codex, executar `codex mcp login iajus-pt` e reiniciar a sessão. Não peça tokens nem palavras-passe no chat. Uma recusa de permissão ou de plano não se resolve por repetir o login: informe o limite devolvido. Se uma ferramenta não estiver listada após autenticação, informe a indisponibilidade nesta ligação; não invente nomes nem responda ao mérito jurídico de memória.
 
 Extraia cada citação e a afirmação que o texto lhe atribui. Consulte a lista de ferramentas desta ligação e use apenas as presentes, com o respetivo esquema. Para pesquisa de raiz, use a skill pesquisar-jurisprudencia-pt.
 

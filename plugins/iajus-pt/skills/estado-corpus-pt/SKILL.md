@@ -5,7 +5,7 @@ description: "Consulta a cobertura do acervo português da IAJUS com consultar_a
 
 # Estado do acervo português (IAJUS)
 
-No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
+Se a ligação devolver 401 ou pedir autenticação, oriente a reconexão do IAJUS PT nos conectores do Claude; no Claude Code, use `/mcp` para autenticar o servidor desta ligação. Não peça tokens nem palavras-passe no chat. Uma recusa de permissão ou de plano não se resolve por repetir o login: informe o limite devolvido. Se uma ferramenta não estiver listada após autenticação, informe a indisponibilidade nesta ligação; não invente nomes nem responda ao mérito jurídico de memória.
 
 Antes de consultar, veja se consultar_acervo está exposta nesta ligação e siga o respetivo esquema. Não suponha que uma ferramenta ausente está disponível.
 
