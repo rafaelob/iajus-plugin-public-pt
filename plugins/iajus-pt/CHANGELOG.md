@@ -3,6 +3,46 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [2.0.13] - 2026-10-13
+
+### Alterado
+
+- O pacote passa a incluir quatro skills para as três ferramentas de corpus portuguesas: decisões, precedentes e acervo. Saem a skill Lex, as rotas de síntese e as instruções de tarefas, histórico e painel. As notas de privacidade descrevem as consultas ao corpus desta ligação.
+
+## [2.0.4] - 2026-10-09
+
+### Corrigido
+
+- O histórico passa a registar as alterações das versões 2.0.2 e 2.0.3 que estavam ausentes. Esta correção do registo não altera o comportamento do plugin.
+
+## [2.0.3] - 2026-10-08
+
+### Alterado
+
+- Os manifestos passam a indicar a versão 2.0.3 e o histórico inclui a correção de permissões no exemplo do README, registada em 2.0.1. Não são adicionadas ferramentas nem nova retenção de consultas.
+
+## [2.0.2] - 2026-10-08
+
+### Alterado
+
+- O README informa que o texto das consultas ao acervo pode ser conservado após um filtro automático de dados pessoais e credenciais, que não garante anonimização. Os manifestos passam à versão 2.0.2.
+
+## [2.0.1] - 2026-10-08
+
+### Alterado
+
+- O README deixa de listar, na permissão de exemplo, a ferramenta que apaga conversas, que o catálogo servido já não tem: só `cancelar_tarefa_lex` fica em `ask`.
+- Nenhuma ferramenta, rota ou schema muda.
+
+## [2.0.0] - 2026-10-07
+
+### Alterado (incompatível)
+
+- As skills passam a usar o catálogo novo do MCP, servido no mesmo endereço `https://pt.mcp.iajus.com.br/mcp`: `pesquisar_decisoes`, `pesquisar_precedentes`, `consultar_acervo`, `abrir_painel_iajus` e a pesquisa Lex (`pesquisa_juridica_lex`, `pesquisa_profunda_lex`, `consultar_tarefa_lex`, `cancelar_tarefa_lex`). Os nomes antigos deixam de ser ensinados.
+- A pesquisa Lex é beta, com limites por conta partilhados entre os anfitriões: pesquisa comum 3 por dia e 10 por semana, profunda 1 por dia e 7 por semana. As skills mostram o saldo e a renovação devolvidos em `limites` e não repetem a chamada depois de uma recusa por limite.
+- O pedido para apagar uma conversa encaminha para https://iajus.pt/contacto.
+- Exige a ligação OAuth já a servir o catálogo novo.
+
 ## [1.5.16] - 2026-10-05
 
 ### Alterado

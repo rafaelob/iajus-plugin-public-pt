@@ -22,6 +22,7 @@ No Codex:
 codex plugin marketplace remove iajus
 codex plugin marketplace add https://github.com/rafaelob/iajus-plugin-public-pt
 codex plugin add iajus-pt@iajus-pt
+codex mcp login iajus-pt
 ```
 
 ## O que ganha
@@ -50,6 +51,7 @@ O login OAuth abre no navegador na primeira ligação: entre com a sua conta IAJ
 ```bash
 codex plugin marketplace add https://github.com/rafaelob/iajus-plugin-public-pt
 codex plugin add iajus-pt@iajus-pt
+codex mcp login iajus-pt
 ```
 
 ### Outros assistentes (ligação direta ao servidor MCP)

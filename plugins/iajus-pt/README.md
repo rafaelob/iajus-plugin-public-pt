@@ -1,13 +1,17 @@
 # IAJUS - Jurisprudência PT (plugin Claude Code)
 
+## Licença
+
+O código e as skills deste pacote são licenciados sob Apache-2.0. Consulte [`LICENSE`](LICENSE) e [`NOTICE`](NOTICE) para o escopo do pacote e os componentes excluídos.
+
 Pesquisa e cita **jurisprudência portuguesa real** diretamente no Claude
 (Claude Desktop, claude.ai e Claude Code), pelo servidor MCP remoto da IAJUS. As skills
 orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca citar de memória.
 
 ## O que inclui
 
-- **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com pesquisa de jurisprudência PT e ligações de origem.
-- **Cinco skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
+- **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com `pesquisar_decisoes`, `pesquisar_precedentes` e `consultar_acervo` para a jurisprudência PT e ligações de origem.
+- **Quatro skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
   pesquisa e conferir cada citação antes de entregar:
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional e Conflitos
@@ -16,10 +20,9 @@ orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca
     não vem no envelope.
   - `verificar-citacoes-pt` - confere as citações de jurisprudência de uma peça contra a fonte,
     com veredicto por citação (CONFIRMADA / DIVERGENTE / NÃO LOCALIZADA / FORA DE ÂMBITO).
-  - `pesquisa-juridica-lex-pt` - envia a pergunta e o contexto completos ao Lex quando exposto nesta ligação; preserva IDs e chave de repetição para acompanhar a mesma pesquisa.
-  - `estado-corpus-pt` - o que o corpus PT contém agora (por órgão, ano e acervo).
-  - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência) e
-    como responder sem citar direito português de memória.
+  - `estado-corpus-pt` - a cobertura do acervo PT agora (`consultar_acervo`), com o instante de cada medição.
+  - `fora-de-ambito-pt` - o que esta superfície NÃO serve (legislação, doutrina, vigência, íntegra
+    da decisão, relações entre decisões) e como responder sem citar direito português de memória.
 
 ## Fontes
 
@@ -30,7 +33,8 @@ orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca
 - **Tribunal de Contas:** TCJure (`tcjure.tcontas.pt`), não DGSI.
 
 Esta superfície é **de jurisprudência**. Não serve legislação portuguesa, doutrina nem vigência
-de normas: para o texto de uma lei, a fonte oficial é o Diário da República
+de normas, e não regista ferramenta para ler a íntegra de uma decisão nem para relações entre
+decisões: para o texto de uma lei, a fonte oficial é o Diário da República
 (diariodarepublica.pt).
 
 O corpus é VIVO e cresce continuamente; órgãos e anos novos aparecem na pesquisa
@@ -57,9 +61,7 @@ chave.
 - **Só o conector (sem as skills):** adicione um conector com o URL
   `https://pt.mcp.iajus.com.br/mcp`; o login OAuth abre no primeiro uso.
 
-**Alternativa (canal privado/CLI):** uma chave `ik_*` no cabeçalho `Authorization: Bearer`.
-Nunca cole a chave em conversa nem em commit. Um **401** significa sessão ou chave em falta ou
-expirada: refaça o login ou reveja a chave.
+Um **401** significa sessão OAuth em falta ou expirada: refaça o login.
 
 ## Como autorizar as ferramentas
 
@@ -72,22 +74,19 @@ utilizador, e as skills não pré-autorizam nenhuma.
   ```json
   {
     "permissions": {
-      "allow": ["mcp__plugin_iajus-pt_iajus-pt__*"],
-      "ask": [
-        "mcp__plugin_iajus-pt_iajus-pt__apagar_conversa_lex",
-        "mcp__plugin_iajus-pt_iajus-pt__cancelar_tarefa_lex"
+      "allow": [
+        "mcp__plugin_iajus-pt_iajus-pt__pesquisar_decisoes",
+        "mcp__plugin_iajus-pt_iajus-pt__pesquisar_precedentes",
+        "mcp__plugin_iajus-pt_iajus-pt__consultar_acervo"
       ]
     }
   }
   ```
 
   Uma ferramenta de plugin chama-se `mcp__plugin_<plugin>_<servidor>__<ferramenta>`; aqui o
-  plugin e o servidor chamam-se ambos `iajus-pt`, e o `*` cobre todas as ferramentas. As duas
-  que apagam ou cancelam de forma irreversível (`apagar_conversa_lex` e `cancelar_tarefa_lex`)
-  ficam em `ask` e **pedem sempre confirmação**: o Claude Code avalia as regras na ordem
-  `deny`, `ask`, `allow`, e uma regra `ask` que casa pede confirmação mesmo quando um `allow`
-  mais amplo também casa a mesma chamada
-  ([permissões do Claude Code](https://code.claude.com/docs/en/permissions)).
+  plugin e o servidor chamam-se ambos `iajus-pt`. O exemplo permite as três ferramentas do acervo.
+  O utilizador pode manter a aprovação de cada chamada conforme as
+  [permissões do Claude Code](https://code.claude.com/docs/en/permissions).
 - **claude.ai e Cowork:** no separador **Connectors** do plugin, abra o conector `iajus-pt` e
   escolha, ferramenta a ferramenta, quais ficam sempre permitidas.
 
@@ -97,6 +96,12 @@ utilizador, e as skills não pré-autorizam nenhuma.
   `https://pt.mcp.iajus.com.br/mcp` (a consulta e os parâmetros de pesquisa), com o token OAuth
   da sessão. O plugin não tem hooks, scripts nem servidor local: não executa comandos, não lê
   ficheiros e não guarda dados na máquina do utilizador.
+- **O que o IAJUS conserva no servidor:** nas ferramentas de consulta ao acervo
+  (`pesquisar_decisoes`, `pesquisar_precedentes`, `consultar_acervo`), o texto da consulta pode
+  ser conservado após um filtro automático de dados pessoais e credenciais. Esse filtro não
+  garante anonimização. Também ficam registos de utilização (ferramenta, recortes como o
+  tribunal e o ano, data, hora e resultado). Na pesquisa por sentido, o texto pode ser enviado a
+  subcontratantes externos de vetores (OpenAI ou Google) apenas para gerar o vetor de pesquisa.
 - **Política de privacidade:** <https://iajus.pt/privacidade>.
 - **Termos de utilização:** <https://iajus.pt/termos>.
 - **Suporte:** <https://iajus.pt/contacto>.
@@ -104,9 +109,9 @@ utilizador, e as skills não pré-autorizam nenhuma.
 
 ## Notas
 
-- As tools de pesquisa dos acervos são **somente-leitura**: pesquisam e citam, nunca escrevem.
-  As tools do perfil Lex guardam conversas e tarefas no IAJUS; apagar uma conversa ou cancelar
-  uma tarefa é irreversível e pede sempre confirmação.
+- O conector pesquisa em seu nome e nem toda tool é só de leitura. `pesquisar_decisoes` e
+  `consultar_acervo` só leem; `pesquisar_precedentes` pode encaminhar registos de baixa confiança
+  para nova verificação.
 - Preserve os acentos e o UTF-8 exatamente como na fonte.
 - Vocabulário e direito **português** (não brasileiro): acórdão, Tribunal da Relação, DGSI,
   ECLI, descritores, acórdão uniformizador de jurisprudência.

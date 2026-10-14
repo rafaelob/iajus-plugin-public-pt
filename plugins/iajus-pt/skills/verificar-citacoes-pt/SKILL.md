@@ -1,24 +1,31 @@
 ---
 name: verificar-citacoes-pt
-description: "Confere citações de jurisprudência portuguesa uma a uma contra os registos e fontes devolvidos nesta ligação."
+description: "Confere citações de jurisprudência portuguesa uma a uma contra os registos e fontes devolvidos por pesquisar_decisoes e pesquisar_precedentes."
 ---
 
 # Verificar citações de jurisprudência portuguesa (IAJUS)
 
 No Codex, se as ferramentas IAJUS não estiverem listadas ou toda chamada voltar 401 ou não autorizado, peça ao utilizador que execute `codex mcp login iajus-pt` e reinicie a sessão; entretanto, não responda de memória.
 
-Extraia cada citação e a afirmação que o texto lhe atribui. Consulte a lista de ferramentas desta ligação e use apenas as ferramentas e esquemas nela presentes. Para pesquisa de raiz, use a skill pesquisar-jurisprudencia-pt.
+Extraia cada citação e a afirmação que o texto lhe atribui. Consulte a lista de ferramentas desta ligação e use apenas as presentes, com o respetivo esquema. Para pesquisa de raiz, use a skill pesquisar-jurisprudencia-pt.
 
 ## Pesquisar cada citação
 
-| Referência | Pesquisa adequada |
+| Referência | Pesquisa adequada (pesquisar_decisoes, salvo indicação) |
 |---|---|
-| Número de processo, ECLI ou identificador literal | expressao em pesquisar_decisoes, ou buscar_regex se essa interface legada estiver exposta |
-| Trecho citado entre aspas | textual com frase exata em pesquisar_decisoes, ou buscar_fts se estiver exposta |
-| Tese sem número | semantica e depois hibrida, ou as ferramentas legadas equivalentes que estiverem expostas |
-| Acórdão uniformizador | pesquisar_precedentes com filtros.tipo auj, ou buscar_qualificada apenas se estiver exposta |
+| Número de processo | busca.modo textual, com o número em consulta, sem frase_exata nem cursor |
+| ECLI ou outro identificador literal | busca.modo expressao, com âncora literal |
+| Trecho citado entre aspas | busca.modo textual com filtros.frase_exata verdadeiro |
+| Tese sem número | busca.modo semantica e depois hibrida |
+| Acórdão uniformizador | pesquisar_precedentes com busca.filtros.tipo auj; pelo número, pesquisar_decisoes |
 
-Com pesquisar_decisoes, construa busca segundo o modo e os filtros PT aceites. Não envie essa estrutura a uma ferramenta legada; siga o esquema legado que a própria ligação apresenta.
+Exemplo para um trecho entre aspas:
+
+```json
+{"busca": {"modo": "textual", "consulta": "abuso de direito na modalidade de venire contra factum proprium", "filtros": {"frase_exata": true}}}
+```
+
+Construa busca segundo o modo e os filtros portugueses que esse modo aceita (ver pesquisar-jurisprudencia-pt).
 
 ## Veredictos
 
@@ -28,10 +35,10 @@ Com pesquisar_decisoes, construa busca segundo o modo e os filtros PT aceites. N
 - NÃO VERIFICÁVEL: erro, timeout, resposta parcial, medida indisponível ou excerto insuficiente para comparar a afirmação.
 - FORA DE ÂMBITO: legislação, doutrina ou jurisprudência de outro ordenamento.
 
-Reaja aos sinais da pesquisa como em pesquisar-jurisprudencia-pt: input_contract_refused, corrija a entrada; filtro_nao_suportado ou filtros_ignorados, retire o filtro nomeado e informe que não foi aplicado; parcial com janela_limitada, continue pelo cursor; incompleta com falha_busca ou timeout, repita uma vez mais estreito e, persistindo, declare NÃO VERIFICÁVEL, nunca NÃO LOCALIZADA. Um acórdão que apenas cita o número não é o processo citado.
+Reaja aos sinais da pesquisa como em pesquisar-jurisprudencia-pt: input_contract_refused, corrija a entrada; filtro_nao_suportado ou filtros_ignorados, preserve a restrição e informe que ela não foi aplicada. Só repita por modalidade ou fonte suportada com recorte equivalente; remover ou enfraquecer a restrição exige a escolha do utilizador; parcial com janela_limitada, continue pelo cursor; incompleta com falha_busca ou timeout, repita uma vez mais estreito e, persistindo, declare NÃO VERIFICÁVEL, nunca NÃO LOCALIZADA. Um acórdão que apenas cita o número não é o processo citado.
 
 Os dados de julgamento (relator, vencidos, votos, resultado, tese, data) só valem se vierem de um excerto devolvido nesta conversa; sem ele, escreva «não localizei esse dado no excerto do acórdão». Se o utilizador contestar o veredicto, volte a consultar pelo número completo e cite o excerto.
 
-Nunca confirme de memória. Não infira vigência, força ou relações entre acórdãos a partir da presença de um registo. Se o serviço devolver uma ligação de origem, preserve-a e descreva a origem como indicada; não invente links nem apresente automaticamente a fonte como oficial.
+Nunca confirme de memória. Esta ligação não tem ferramenta para ler a íntegra da decisão, para relações ou citações entre acórdãos, nem para o histórico de redações de um precedente: não infira vigência, força ou relações a partir da presença de um registo e, se a afirmação depender disso, declare NÃO VERIFICÁVEL. Se o serviço devolver uma ligação de origem, preserve-a e descreva a origem como indicada; não invente links nem apresente automaticamente a fonte como oficial.
 
 No final, conte cada veredicto separadamente e destaque as citações não localizadas ou não verificáveis.
