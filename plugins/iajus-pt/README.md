@@ -2,17 +2,19 @@
 
 ## Licença
 
-O código e as skills deste pacote são licenciados sob Apache-2.0. Consulte [`LICENSE`](LICENSE) e [`NOTICE`](NOTICE) para o escopo do pacote e os componentes excluídos.
+O código e as instruções de pesquisa deste pacote são licenciados sob Apache-2.0. Consulte [`LICENSE`](LICENSE) e [`NOTICE`](NOTICE) para o âmbito do pacote e os componentes excluídos.
 
-Pesquisa e cita **jurisprudência portuguesa real** diretamente no Claude
-(Claude Desktop, claude.ai e Claude Code), pelo servidor MCP remoto da IAJUS. As skills
-orientam o Claude a conferir o registo e a proveniência da ligação, e a nunca citar de memória.
+A licença deste pacote abrange apenas os ficheiros do próprio pacote. O servidor MCP IAJUS, as suas APIs, as fontes e o corpus jurídico que o sustentam são proprietários da Celeris Juris Tecnologia e Inteligência Jurídica LTDA e não são licenciados por este pacote. O acesso segue os planos, a autenticação, os limites e os termos IAJUS.
+
+Pesquise e cite **jurisprudência portuguesa** diretamente no Claude
+(Claude Desktop, claude.ai e Claude Code), através do servidor MCP remoto da IAJUS. As instruções
+de pesquisa orientam o Claude a verificar o registo e a proveniência da ligação e a nunca citar de memória.
 
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com `pesquisar_decisoes`, `pesquisar_precedentes` e `consultar_acervo` para a jurisprudência PT e ligações de origem.
-- **Quatro skills pt-PT** que ensinam o Claude a escolher a modalidade certa, escalar a
-  pesquisa e conferir cada citação antes de entregar:
+- **Quatro instruções de pesquisa em português de Portugal** que ensinam o Claude a escolher
+  a modalidade adequada, aprofundar a pesquisa e verificar cada citação antes de responder:
   - `pesquisar-jurisprudencia-pt` - acórdãos do STJ, Tribunais da Relação (Lisboa, Porto,
     Coimbra, Évora, Guimarães), STA, TCA-Sul e Norte, Tribunal Constitucional e Conflitos
     via DGSI, e Tribunal de Contas via TCJure; acórdão uniformizador de jurisprudência (AUJ). Pesquisável
@@ -47,7 +49,7 @@ Claude abre o navegador para iniciar sessão em `app.iajus.com.br`. Não é prec
 chave.
 
 - **Claude Code:** instale o plugin a partir do marketplace IAJUS.pt; o `.mcp.json` já aponta o
-  host PT e usa OAuth.
+  servidor PT e usa OAuth.
 
   ```text
   /plugin marketplace add https://github.com/rafaelob/iajus-plugin-public-pt
@@ -57,11 +59,11 @@ chave.
 
 - **claude.ai e Cowork:** em **Customize > Plugins > Add > Add marketplace**, indique
   `https://github.com/rafaelob/iajus-plugin-public-pt` e instale o `iajus-pt`; depois ligue o
-  servidor `iajus-pt` no separador **Connectors** do plugin. O login OAuth abre no navegador.
+  servidor `iajus-pt` no separador **Connectors** do plugin. O início de sessão OAuth abre no navegador.
 - **Só o conector (sem as skills):** adicione um conector com o URL
-  `https://pt.mcp.iajus.com.br/mcp`; o login OAuth abre no primeiro uso.
+  `https://pt.mcp.iajus.com.br/mcp`; o início de sessão OAuth abre na primeira utilização.
 
-Um **401** significa sessão OAuth em falta ou expirada: refaça o login.
+Um **401** significa sessão OAuth em falta ou expirada: volte a autenticar-se.
 
 ## Como autorizar as ferramentas
 
@@ -109,11 +111,11 @@ utilizador, e as skills não pré-autorizam nenhuma.
 
 ## Notas
 
-- O conector pesquisa em seu nome e nem toda tool é só de leitura. `pesquisar_decisoes` e
+- O conector pesquisa em seu nome e nem todas as ferramentas são apenas de leitura. `pesquisar_decisoes` e
   `consultar_acervo` só leem; `pesquisar_precedentes` pode encaminhar registos de baixa confiança
   para nova verificação.
 - Preserve os acentos e o UTF-8 exatamente como na fonte.
 - Vocabulário e direito **português** (não brasileiro): acórdão, Tribunal da Relação, DGSI,
   ECLI, descritores, acórdão uniformizador de jurisprudência.
 
-Homepage: https://iajus.pt
+Página inicial: https://iajus.pt

@@ -2,6 +2,18 @@
 
 Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [2.0.22] - 2026-10-28
+
+### Alterado
+
+- O README e o NOTICE do pacote declaram que a licença Apache-2.0 abrange apenas os ficheiros do pacote. O servidor MCP IAJUS, as suas APIs, as fontes e o corpus jurídico que o sustentam são proprietários da Celeris Juris Tecnologia e Inteligência Jurídica LTDA, e o acesso segue os planos, a autenticação, os limites e os termos IAJUS. A licença do pacote não muda.
+
+## [2.0.17] - 2026-10-16
+
+### Alterado
+
+- As descrições, os casos de revisão e as instruções de ligação usam português de Portugal. O subtítulo da submissão é «Pesquisa jurídica portuguesa» e o manifesto OpenAI inclui a ligação para o vídeo de demonstração fornecido.
+
 ## [2.0.15] - 2026-10-13
 
 ### Alterado

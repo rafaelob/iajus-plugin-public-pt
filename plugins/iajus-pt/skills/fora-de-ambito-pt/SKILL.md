@@ -5,7 +5,7 @@ description: "Distingue pesquisa jurisprudencial portuguesa de legislação, vig
 
 # Âmbito da ligação portuguesa IAJUS
 
-Se a ligação devolver 401 ou pedir autenticação, oriente a reconexão do IAJUS PT nos conectores do Claude; no Claude Code, use `/mcp` para autenticar o servidor desta ligação. Não peça tokens nem palavras-passe no chat. Uma recusa de permissão ou de plano não se resolve por repetir o login: informe o limite devolvido. Se uma ferramenta não estiver listada após autenticação, informe a indisponibilidade nesta ligação; não invente nomes nem responda ao mérito jurídico de memória.
+Se a ligação devolver 401 ou pedir autenticação, oriente o restabelecimento da ligação do IAJUS PT nos conectores do Claude; no Claude Code, use `/mcp` para autenticar o servidor desta ligação. Não peça códigos de acesso nem palavras-passe na conversa. Uma recusa de permissão ou de plano não se resolve repetindo a autenticação: informe o limite devolvido. Se uma ferramenta não estiver listada após a autenticação, informe que está indisponível nesta ligação; não invente nomes nem responda quanto ao mérito jurídico de memória.
 
 Consulte primeiro a lista de ferramentas desta ligação. Use apenas nomes presentes e o esquema próprio de cada um. As instruções abaixo não tornam uma ferramenta disponível.
 
@@ -25,4 +25,4 @@ Esta ligação não tem ferramenta registada para legislação, doutrina, vigên
 
 Só diga que uma capacidade está disponível se a ferramenta correspondente aparecer nesta ligação. Se não houver uma ferramenta adequada, explique o limite e ofereça a alternativa disponível, sem anunciar funções futuras.
 
-Um zero numa pesquisa concluída significa apenas que não houve resultados para aquele pedido e recorte. Erro, timeout, resposta parcial, secção não medida ou ferramenta indisponível não provam inexistência.
+Um zero numa pesquisa concluída significa apenas que não houve resultados para aquele pedido e recorte. Erro, tempo de espera excedido, resposta parcial, secção não medida ou ferramenta indisponível não provam inexistência.

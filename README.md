@@ -1,6 +1,6 @@
 # IAJUS Portugal: jurisprudência portuguesa no seu assistente de IA
 
-Este é o marketplace oficial do plugin **IAJUS Portugal**. Ele liga o seu assistente (Claude Code, Codex ou ChatGPT) à base portuguesa do IAJUS: acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e a verificação de cada citação contra o registo e a ligação de origem. O plugin existe para o seu assistente **citar o que existe de verdade**, nunca inventar precedente.
+Este é o catálogo oficial do plugin **IAJUS Portugal**. Liga o seu assistente (Claude Code, Codex ou ChatGPT) ao acervo português do IAJUS: acórdãos dos tribunais superiores e das Relações através da DGSI, acórdãos uniformizadores de jurisprudência e verificação de cada citação no registo e na ligação de origem. As instruções de pesquisa orientam o assistente a citar apenas os elementos devolvidos, com a respetiva proveniência.
 
 > Procura jurisprudência e legislação do **Brasil**? Esse é um marketplace separado: [github.com/rafaelob/iajus-plugin-public](https://github.com/rafaelob/iajus-plugin-public).
 
@@ -31,7 +31,7 @@ codex mcp login iajus-pt
 - **Proveniência sem rótulos enganosos**: em resultados do Tribunal Constitucional, `dgsi.pt/atco1` é um espelho histórico; o portal em `tribunalconstitucional.pt` é a fonte oficial. Nos restantes órgãos, a ligação é apresentada como origem, sem presumir oficialidade apenas pelo domínio.
 - **Precedente qualificado**: os acórdãos uniformizadores de jurisprudência (AUJ) do Supremo Tribunal de Justiça, citáveis pelo teor. A base **não regista a vigência** destes acórdãos e o plugin não a afirma: confirme o estado na fonte competente indicada para o órgão.
 - **Estado do corpus ao vivo**: confirme a cobertura atual antes de concluir que não há resultados.
-- **Skills pt-PT prontas** que ensinam o assistente o método de pesquisa jurídica portuguesa.
+- **Instruções em português de Portugal** que ensinam ao assistente o método de pesquisa jurídica portuguesa.
 
 ## Instalar
 
@@ -44,7 +44,7 @@ codex mcp login iajus-pt
 /reload-plugins
 ```
 
-O login OAuth abre no navegador na primeira ligação: entre com a sua conta IAJUS e pronto.
+O início de sessão OAuth abre no navegador na primeira ligação: autentique-se com a sua conta IAJUS.
 
 ### Codex
 
@@ -56,14 +56,14 @@ codex mcp login iajus-pt
 
 ### Outros assistentes (ligação direta ao servidor MCP)
 
-Assistentes que aceitam um servidor MCP por URL ligam-se ao IAJUS Portugal sem plugin, apontando para `https://pt.mcp.iajus.com.br/mcp` e autenticando por **OAuth 2.1** (login no navegador). Ganha as mesmas ferramentas de pesquisa jurídica; as skills prontas não acompanham a ligação direta.
+Assistentes que aceitam um servidor MCP por URL ligam-se ao IAJUS Portugal sem plugin, através de `https://pt.mcp.iajus.com.br/mcp` e com autenticação **OAuth 2.1** no navegador. A ligação disponibiliza as mesmas ferramentas de pesquisa jurídica; as instruções de pesquisa do plugin não acompanham a ligação direta.
 
 ## Conta e acesso
 
-Crie a sua conta em [iajus.pt](https://iajus.pt). A autenticação padrão é **OAuth 2.1** (login no navegador, renovação automática): nunca precisa de colar token em ficheiro. Detalhes de cada pacote, incluindo a alternativa manual por chave, estão nos READMEs de `plugins/iajus-pt` (Claude Code) e `plugins/iajus-pt-codex` (Codex).
+Crie a sua conta em [iajus.pt](https://iajus.pt). A autenticação é **OAuth 2.1**, com início de sessão no navegador e renovação automática: não precisa de copiar credenciais para um ficheiro. Consulte os detalhes de cada pacote nos ficheiros README de `plugins/iajus-pt` (Claude Code) e `plugins/iajus-pt-codex` (Codex).
 
 ## Suporte
 
 Dúvidas ou problemas: [iajus.pt](https://iajus.pt) ou contato@iajus.com.br.
 
-Política de privacidade: [iajus.pt/privacidade](https://iajus.pt/privacidade). Termos de uso: [iajus.pt/termos](https://iajus.pt/termos).
+Política de privacidade: [iajus.pt/privacidade](https://iajus.pt/privacidade). Termos de utilização: [iajus.pt/termos](https://iajus.pt/termos).

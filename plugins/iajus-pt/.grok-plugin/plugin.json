@@ -1,8 +1,8 @@
 {
   "name": "iajus-pt",
-  "displayName": "IAJUS - Portuguese Case Law Research",
-  "description": "Portuguese case law research through the hosted IAJUS MCP server, including Supreme Court and Courts of Appeal decisions sourced through DGSI, with source links and explicit provenance. For Constitutional Court results, dgsi.pt/atco1 is labelled as a historical mirror and tribunalconstitucional.pt as the official portal. Includes four pt-PT legal-research skills and OAuth 2.1 authentication.",
-  "version": "2.0.14",
+  "displayName": "IAJUS - Jurisprudência PT",
+  "description": "Pesquisa de jurisprudência portuguesa através do servidor MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações através da DGSI, com ligações de origem e proveniência explícita. Nos resultados do Tribunal Constitucional, dgsi.pt/atco1 é identificado como espelho histórico e tribunalconstitucional.pt como portal oficial. Inclui quatro instruções de pesquisa jurídica em português de Portugal e autenticação OAuth 2.1.",
+  "version": "2.0.16",
   "author": {
     "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
     "email": "contato@iajus.com.br"

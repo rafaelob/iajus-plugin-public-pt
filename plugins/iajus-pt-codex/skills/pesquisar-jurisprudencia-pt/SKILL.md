@@ -6,7 +6,7 @@ allowed-tools: mcp__iajus-pt__pesquisar_decisoes, mcp__plugin_iajus-pt_iajus-pt_
 
 # Pesquisar jurisprudência portuguesa (IAJUS)
 
-Se a ligação devolver 401 ou pedir autenticação, oriente a reconexão no host: no ChatGPT, reconectar o IAJUS PT pelas definições da ligação; no Codex, executar `codex mcp login iajus-pt` e reiniciar a sessão. Não peça tokens nem palavras-passe no chat. Uma recusa de permissão ou de plano não se resolve por repetir o login: informe o limite devolvido. Se uma ferramenta não estiver listada após autenticação, informe a indisponibilidade nesta ligação; não invente nomes nem responda ao mérito jurídico de memória.
+Se a ligação devolver 401 ou pedir autenticação, oriente o restabelecimento da ligação na aplicação: no ChatGPT, volte a ligar o IAJUS PT através das definições da ligação; no Codex, execute `codex mcp login iajus-pt` e reinicie a sessão. Não peça códigos de acesso nem palavras-passe na conversa. Uma recusa de permissão ou de plano não se resolve repetindo a autenticação: informe o limite devolvido. Se uma ferramenta não estiver listada após a autenticação, informe que está indisponível nesta ligação; não invente nomes nem responda quanto ao mérito jurídico de memória.
 
 Veja primeiro as ferramentas expostas nesta ligação. Use apenas as que aparecem e siga o esquema de cada uma. Para decisões, a ferramenta é pesquisar_decisoes, com um objeto busca cujo campo modo é um dos quatro modos portugueses abaixo; para precedentes qualificados, pesquisar_precedentes.
 
@@ -68,13 +68,13 @@ Leia `uniformizador_valido` em cada resultado quando existir: se for falso, não
 
 Cite apenas elementos devolvidos nesta chamada: tribunal, número, data, excerto e ligação de origem quando presentes. Preserve a proveniência e não rotule uma ligação como oficial sem indicação da própria fonte. Um excerto não sustenta afirmações que não contém.
 
-Uma pesquisa concluída sem resultados é zero para esse pedido e recorte. Erro, timeout, interrupção, resposta parcial ou medida indisponível não são ausência. Não trate o limite de resultados como censo nem afirme completude.
+Uma pesquisa concluída sem resultados é zero para esse pedido e recorte. Erro, tempo de espera excedido, interrupção, resposta parcial ou medida indisponível não são ausência. Não trate o limite de resultados como censo nem afirme completude.
 
 ## Recusas e selos da pesquisa
 
 Leia error_code, busca_status (completa, parcial ou incompleta), busca_motivos, aviso_busca e filtros_ignorados antes de responder:
 
-- input_contract_refused: a entrada não foi lida (regex malformada, tipo inexistente). Reformule como a mensagem indicar e repita; não é falha do acervo.
+- input_contract_refused: a entrada não foi lida (expressão regular malformada, tipo inexistente). Reformule como a mensagem indicar e repita; não é falha do acervo.
 - filtro_nao_suportado, ou filtros_ignorados não vazio: o filtro nomeado não foi aplicado. Preserve a restrição do utilizador e informe essa limitação; não apresente resultados como se o recorte tivesse sido aplicado. Só repita através de outra modalidade ou fonte suportada se mantiver o mesmo filtro e um recorte equivalente. Se isso exigir remover ou enfraquecer a restrição, pare e pergunte ao utilizador se pretende uma pesquisa mais ampla.
 - parcial com janela_limitada: viu-se apenas uma janela. Continue com page_info.next_cursor ou refine o recorte; a lista não é o conjunto.
 - incompleta, com falha_busca ou timeout: a pesquisa não terminou. Repita uma vez com um recorte mais estreito; se persistir, diga que a pesquisa FALHOU, nunca «não encontrado».

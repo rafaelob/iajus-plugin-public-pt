@@ -1,7 +1,7 @@
 {
   "name": "iajus-pt",
-  "version": "2.0.16",
-  "description": "Pesquisa e cita jurisprudência portuguesa pelo MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações via DGSI, acórdão uniformizador de jurisprudência e quatro skills pt-PT para pesquisa, citações, estado do corpus e limites de âmbito. Instala skills e MCP juntos, com autenticação OAuth 2.1.",
+  "version": "2.0.22",
+  "description": "Pesquise e cite jurisprudência portuguesa através do servidor MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações através da DGSI, acórdãos uniformizadores de jurisprudência e quatro instruções de pesquisa em português de Portugal para pesquisar, verificar citações, consultar a cobertura do acervo e respeitar os limites da ligação. Instala as instruções e o servidor MCP em conjunto, com autenticação OAuth 2.1.",
   "author": {
     "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
     "email": "contato@iajus.com.br",
@@ -15,10 +15,10 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "IAJUS - Jurisprudência PT",
-    "shortDescription": "Jurisprudência portuguesa",
-    "longDescription": "Pesquise acórdãos portugueses em modalidades complementares e confira cada citação no registo e na ligação de origem com proveniência explícita. No Tribunal Constitucional, dgsi.pt/atco1 é espelho histórico e tribunalconstitucional.pt é o portal oficial. O plugin conecta quatro skills pt-PT ao MCP remoto do IAJUS, com autenticação OAuth 2.1.",
+    "shortDescription": "Pesquisa jurídica portuguesa",
+    "longDescription": "O IAJUS PT apoia a investigação jurídica e o estudo da jurisprudência portuguesa. Pesquise decisões e precedentes dos tribunais portugueses e confira as citações nos registos e nas ligações de origem. Consulte a cobertura do acervo para conhecer os limites da pesquisa. Os resultados identificam a proveniência: no Tribunal Constitucional, dgsi.pt/atco1 é um espelho histórico e tribunalconstitucional.pt é o portal oficial. Inclui quatro instruções em português de Portugal e requer uma conta IAJUS com acesso ao serviço português.",
     "developerName": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
-    "category": "Productivity",
+    "category": "Education & Research",
     "capabilities": ["Read"],
     "websiteURL": "https://iajus.pt",
     "supportURL": "https://iajus.pt/contacto.html",

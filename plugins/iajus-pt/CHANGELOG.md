@@ -3,6 +3,18 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [2.0.16] - 2026-10-28
+
+### Alterado
+
+- O README e o NOTICE do pacote declaram que a licença Apache-2.0 abrange apenas os ficheiros do pacote. O servidor MCP IAJUS, as suas APIs, as fontes e o corpus jurídico que o sustentam são proprietários da Celeris Juris Tecnologia e Inteligência Jurídica LTDA, e o acesso segue os planos, a autenticação, os limites e os termos IAJUS. A licença do pacote não muda.
+
+## [2.0.15] - 2026-10-16
+
+### Alterado
+
+- As descrições do plugin e do catálogo, incluindo o manifesto Grok, e as instruções de ligação usam português de Portugal.
+
 ## [2.0.13] - 2026-10-13
 
 ### Alterado
