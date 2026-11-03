@@ -2,7 +2,7 @@
 
 Pesquise jurisprudência portuguesa, confira citações e consulte a cobertura do acervo, preservando a proveniência e as ligações de origem disponíveis.
 
-Plugin nativo do Google Antigravity, versão 2.0.25. Liga ao servidor MCP remoto IAJUS de Portugal, em https://pt.mcp.iajus.com.br/mcp, e requer uma conta IAJUS com acesso ao serviço português. Os resultados preservam a proveniência devolvida, a data e a ligação de origem quando disponíveis. Uma ligação de origem só é apresentada como oficial quando o respetivo registo o comprovar.
+Plugin nativo do Google Antigravity, versão 2.0.26. Liga ao servidor MCP remoto IAJUS de Portugal, em https://pt.mcp.iajus.com.br/mcp, e requer uma conta IAJUS com acesso ao serviço português. Os resultados preservam a proveniência devolvida, a data e a ligação de origem quando disponíveis. Uma ligação de origem só é apresentada como oficial quando o respetivo registo o comprovar.
 
 ## O que inclui o pacote
 

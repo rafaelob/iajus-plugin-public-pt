@@ -1,6 +1,6 @@
 {
   "name": "iajus-pt",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "Pesquise e cite jurisprudência portuguesa através do servidor MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações através da DGSI, acórdãos uniformizadores de jurisprudência e quatro instruções de pesquisa em português de Portugal para pesquisar, verificar citações, consultar a cobertura do acervo e respeitar os limites da ligação. Instala as instruções e o servidor MCP em conjunto, com autenticação OAuth 2.1.",
   "author": {
     "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
@@ -16,10 +16,10 @@
   "interface": {
     "displayName": "IAJUS - Jurisprudência PT",
     "shortDescription": "Pesquisa jurídica portuguesa",
-    "longDescription": "O IAJUS PT apoia a investigação jurídica e o estudo da jurisprudência portuguesa. Pesquise decisões e precedentes dos tribunais portugueses e confira as citações nos registos e nas ligações de origem. Consulte a cobertura do acervo para conhecer os limites da pesquisa. Os resultados identificam a proveniência: no Tribunal Constitucional, dgsi.pt/atco1 é um espelho histórico e tribunalconstitucional.pt é o portal oficial. Inclui quatro instruções em português de Portugal e requer uma conta IAJUS com acesso ao serviço português.",
+    "longDescription": "Pesquise decisões dos tribunais portugueses sobre uma questão jurídica ou localize um acórdão uniformizador de jurisprudência (AUJ) pelo número e ano. Identifique tribunal, processo, data e proveniência nos registos devolvidos e confira cada citação pelos metadados ou excertos disponíveis. Os metadados podem confirmar a identidade de um acórdão. Confirmar a fundamentação exige um excerto que a sustente. Esta ligação não lê a íntegra das decisões nem pesquisa legislação ou vigência normativa. Consulte a cobertura e o instante de medição do acervo. Uma pesquisa vazia não prova ausência de jurisprudência. No Tribunal Constitucional, dgsi.pt/atco1 é um espelho histórico e tribunalconstitucional.pt é o portal oficial. Inclui quatro instruções em português de Portugal e requer uma conta IAJUS com acesso ao serviço português.",
     "developerName": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
     "category": "Education & Research",
-    "capabilities": ["Read"],
+    "capabilities": ["Portuguese judgments", "AUJ lookup", "Citation verification", "Collection coverage"],
     "websiteURL": "https://iajus.pt",
     "supportURL": "https://iajus.pt/contacto.html",
     "privacyPolicyURL": "https://iajus.pt/privacidade",
