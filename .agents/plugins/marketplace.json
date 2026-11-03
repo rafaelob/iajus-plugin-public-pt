@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "iajus-pt",
-      "version": "2.0.24",
+      "version": "2.0.25",
       "description": "Pesquisa e citação de jurisprudência portuguesa através do servidor MCP remoto IAJUS: STJ, Tribunais da Relação, STA, TCA Sul e Norte, Tribunal Constitucional e Tribunal dos Conflitos através da DGSI; Tribunal de Contas através do TCJure. Quatro instruções em português de Portugal para GPT e Codex: pesquisa, verificação de citações, cobertura do acervo e limites da ligação. Inclui o servidor MCP configurado, com autenticação OAuth 2.1.",
       "source": {
         "source": "local",
