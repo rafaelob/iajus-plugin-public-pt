@@ -15,7 +15,7 @@
       "source": "./plugins/iajus-pt",
       "displayName": "IAJUS - Jurisprudência PT",
       "description": "Pesquise e cite jurisprudência portuguesa através do servidor MCP remoto IAJUS. Inclui acórdãos dos tribunais superiores e das Relações através da DGSI, acórdãos uniformizadores de jurisprudência e quatro instruções de pesquisa em português de Portugal para pesquisar em várias modalidades, verificar citações, consultar a cobertura do acervo e respeitar os limites da ligação. Instala as instruções e o servidor MCP em conjunto, com autenticação OAuth 2.1.",
-      "version": "2.0.16",
+      "version": "2.0.17",
       "author": { "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA", "email": "contato@iajus.com.br" },
       "homepage": "https://iajus.pt",
       "license": "Apache-2.0",
