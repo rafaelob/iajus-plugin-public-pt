@@ -1,0 +1,29 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "author": {
+    "email": "contato@iajus.com.br",
+    "name": "Celeris Juris Tecnologia e Inteligência Jurídica LTDA",
+    "url": "https://iajus.pt"
+  },
+  "description": "Pesquise jurisprudência portuguesa, confira citações e consulte a cobertura do acervo, preservando a proveniência e as ligações de origem disponíveis.",
+  "displayName": "IAJUS - Jurisprudência PT",
+  "homepage": "https://iajus.pt",
+  "keywords": [
+    "jurisprudencia",
+    "direito",
+    "portugal",
+    "dgsi",
+    "acordao",
+    "mcp"
+  ],
+  "license": "Apache-2.0",
+  "logo": "assets/iajus-pt-icon-512.png",
+  "name": "iajus-pt",
+  "repository": "https://github.com/rafaelob/iajus-plugin-public-pt",
+  "suggestedPrompts": [
+    "Pesquise acórdãos portugueses sobre responsabilidade civil e cite as ligações de origem com a respetiva proveniência.",
+    "Localize o acórdão uniformizador aplicável no Supremo e cite a ligação de origem com a respetiva proveniência.",
+    "Antes de concluir que não há resultados, reformule a pesquisa noutra modalidade e diga o que já tentou."
+  ],
+  "version": "2.0.26"
+}
