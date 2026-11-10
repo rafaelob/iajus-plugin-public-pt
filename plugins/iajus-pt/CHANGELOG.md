@@ -3,6 +3,24 @@
 Todas as alterações relevantes deste plugin são registadas aqui. Formato baseado em
 [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
+## [2.0.18] - 2026-11-10
+
+### Alterado
+
+- O README passa a incluir o aviso de que as respostas são apoio à pesquisa e não aconselhamento jurídico, exemplos de pedidos, resolução de problemas (início de sessão, recusa por plano ou limite e zero resultados) e a declaração do que o plugin envia. A ligação de suporte do README passa a ser a do manifesto.
+- O catálogo do marketplace passa a incluir a palavra-chave `ecli`, que o manifesto do plugin já tinha.
+- As quatro skills não mudam. Nenhuma ferramenta, rota ou schema muda.
+
+## [2.0.17] - 2026-11-03
+
+### Alterado
+
+- A skill `pesquisar-jurisprudencia-pt` manda consultar `consultar_acervo`, quando estiver disponível, antes de pesquisar por tribunal ou de concluir que não há resultados, indicando o estado e o `as_of` da secção. A pesquisa por número de processo passa a ser descrita como uma tentativa sobre o texto indexado, sem garantia de localizar a decisão, e a skill avisa que não há consulta direta por `entity_id` ou URL.
+- A skill passa a orientar a pesquisa de um acórdão uniformizador pelo número oficial em `busca.numero` (n/AAAA ou n.º n/AAAA), distinto do número de processo. Um acórdão que cita um AUJ não é, por isso, o ato uniformizador, e a classificação não permite presumir força vinculativa, vigência ou aplicabilidade.
+- A skill `verificar-citacoes-pt` atualiza a tabela de pesquisa (número de processo e ECLI como tentativas sobre o texto indexado; linhas novas para o número oficial de AUJ e para URL ou `entity_id`). Os veredictos separam a confirmação da identidade da confirmação da afirmação, e uma pesquisa incompleta deixa o pedido original NÃO VERIFICÁVEL.
+- As skills `estado-corpus-pt` e `fora-de-ambito-pt` esclarecem que o `limite` de `consultar_acervo` só vale em `tudo` ou `orgaos`, que o `as_of` e a data de um acórdão não provam a vigência nem a redação de uma norma, e que uma ligação ou os metadados não provam a leitura da íntegra nem direitos de redistribuição. A skill de âmbito acrescenta que a ligação portuguesa não se substitui pela brasileira.
+- Os manifestos e o catálogo passam à versão 2.0.17.
+
 ## [2.0.16] - 2026-10-28
 
 ### Alterado

@@ -10,6 +10,11 @@ Pesquise e cite **jurisprudência portuguesa** diretamente no Claude
 (Claude Desktop, claude.ai e Claude Code), através do servidor MCP remoto da IAJUS. As instruções
 de pesquisa orientam o Claude a verificar o registo e a proveniência da ligação e a nunca citar de memória.
 
+> **Apoio à pesquisa, não aconselhamento jurídico.** As respostas geradas com este plugin são
+> apoio à pesquisa e podem conter erros ou lacunas. Não substituem a análise de um
+> profissional habilitado: um profissional do direito deve conferir cada fonte (existência,
+> texto, vigência e aplicabilidade) antes de a usar numa peça, parecer ou decisão.
+
 ## O que inclui
 
 - **Servidor MCP remoto** `iajus-pt` (`https://pt.mcp.iajus.com.br/mcp`) com `pesquisar_decisoes`, `pesquisar_precedentes` e `consultar_acervo` para a jurisprudência PT e ligações de origem.
@@ -65,6 +70,31 @@ chave.
 
 Um **401** significa sessão OAuth em falta ou expirada: volte a autenticar-se.
 
+## Exemplos de pedidos
+
+Depois de instalar e ligar, peça em linguagem natural; o Claude escolhe a skill e a ferramenta:
+
+- «Pesquise acórdãos do STJ sobre abuso de direito na modalidade de venire contra factum
+  proprium e indique tribunal, data, processo e ligação de origem.» (`pesquisar_decisoes`)
+- «Que acórdãos uniformizadores de jurisprudência do STJ constam do acervo?»
+  (`pesquisar_precedentes`)
+- «Confira se estas citações existem nas fontes e dê o veredicto de cada uma: [cole as
+  citações].» (skill `verificar-citacoes-pt`)
+- «Qual é a cobertura do acervo português por tribunal e com que data foi medida?»
+  (`consultar_acervo`)
+
+## Resolução de problemas
+
+- **Início de sessão ou OAuth (erro 401):** a sessão OAuth está em falta ou expirou. No Claude
+  Code, execute `/mcp` e autentique o servidor `iajus-pt`; no claude.ai e no Cowork, volte a
+  ligar o conector `iajus-pt` no separador **Connectors** do plugin.
+- **Recusa por plano ou limite:** não se resolve a voltar a autenticar-se. Leia o limite indicado
+  no retorno e, se persistir, contacte o suporte.
+- **Zero resultados:** um zero não prova que a decisão não exista. Experimente outra
+  modalidade (híbrida, semântica, textual ou expressão), alargue o tribunal e o período e consulte
+  a cobertura com `consultar_acervo`. A pesquisa por número de processo ou ECLI procura no texto
+  indexado e não garante localizar a decisão: confirme na fonte de origem.
+
 ## Como autorizar as ferramentas
 
 Nenhum plugin autoriza ferramentas sozinho: a autorização é sempre uma configuração local do
@@ -95,8 +125,10 @@ utilizador, e as skills não pré-autorizam nenhuma.
 ## Dados, privacidade e suporte
 
 - **O que o plugin envia:** só as chamadas de ferramenta que o Claude faz ao servidor MCP
-  `https://pt.mcp.iajus.com.br/mcp` (a consulta e os parâmetros de pesquisa), com o token OAuth
-  da sessão. O plugin não tem hooks, scripts nem servidor local: não executa comandos, não lê
+  `https://pt.mcp.iajus.com.br/mcp`, por HTTPS e com o token OAuth 2.1 da sessão (a consulta e
+  os parâmetros de pesquisa). Sai da máquina do utilizador apenas o que o pedido exige: a
+  consulta e os filtros. O plugin não instrui o Claude a enviar memória nem histórico de
+  conversas. O plugin não tem hooks, scripts nem servidor local: não executa comandos, não lê
   ficheiros e não guarda dados na máquina do utilizador.
 - **O que o IAJUS conserva no servidor:** nas ferramentas de consulta ao acervo
   (`pesquisar_decisoes`, `pesquisar_precedentes`, `consultar_acervo`), o texto da consulta pode
@@ -106,7 +138,7 @@ utilizador, e as skills não pré-autorizam nenhuma.
   subcontratantes externos de vetores (OpenAI ou Google) apenas para gerar o vetor de pesquisa.
 - **Política de privacidade:** <https://iajus.pt/privacidade>.
 - **Termos de utilização:** <https://iajus.pt/termos>.
-- **Suporte:** <https://iajus.pt/contacto>.
+- **Suporte:** <https://iajus.pt/contacto.html>.
 - Não inclua dados pessoais, credenciais nem outros dados sensíveis nas consultas.
 
 ## Notas
